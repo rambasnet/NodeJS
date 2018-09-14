@@ -1,7 +1,7 @@
 # NodeJSNotebooks
-Jupyter notebooks for learning Javascript using Node
+Jupyter notebooks for learning JavaScript(JS) using Node.js
 
 # Requirements
-- NodeJS
+- Node.js
 - IJavascript Jupyter Notebook kernel
 
