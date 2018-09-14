@@ -1,5 +1,5 @@
 # NodeJSNotebooks
-Jupyter notebooks for learning Javascript using NodeJS
+Jupyter notebooks for learning Javascript using Node
 
 # Requirements
 - NodeJS
