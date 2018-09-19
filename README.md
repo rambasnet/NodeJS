@@ -1,5 +1,5 @@
 # NodeJSNotebooks
-Jupyter notebooks for learning JavaScript(JS) using Node.js
+Jupyter notebooks for learning JavaScript(JS)/ECMAScript (ES 6) using Node.js
 
 # Requirements
 - Node.js - https://nodejs.org/en/
