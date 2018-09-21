@@ -62,5 +62,5 @@ typings/
 
 # others
 .ipynb_checkpoints/
-.DS_Store/
+*.DS_Store
 .vs_code/
