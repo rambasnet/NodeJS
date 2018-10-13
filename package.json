@@ -1,0 +1,23 @@
+{
+  "name": "NodeJSNotebooks",
+  "version": "1.0.0",
+  "description": "Jupyter notebooks for learning JavaScript(JS)/ECMAScript (ES 6) using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rambasnet/NodeJSNotebooks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rambasnet/NodeJSNotebooks/issues"
+  },
+  "homepage": "https://github.com/rambasnet/NodeJSNotebooks#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  }
+}
