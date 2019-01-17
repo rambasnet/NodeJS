@@ -1,5 +1,6 @@
 # NodeJSNotebooks
-Introduction to JavaScript(JS)/ECMAScript (ES 6) and NodeJS using Jupyter Notebooks
+
+# Introduction to JavaScript(JS)/ECMAScript (ES 6) and NodeJS using Jupyter Notebooks
 
 
 ## Who can use these notebooks
@@ -25,7 +26,7 @@ To run these notebooks interactvely and save your work locally, you need NodeJS 
 
 #### Installing via Anaconda or Miniconda
 
-Anaconda or Miniconda has Python 3 and many other packages that you can easily install on any platform (Windows, Linux, and Mac). First, install Anaconda: http://docs.continuum.io/anaconda/install/ or Miniconda https://conda.io/docs/user-guide/install/index.html
+Anaconda or Miniconda has Python 3 and many other packages that you can easily install on any platform (Windows, Linux, and Mac). First, install Anaconda http://docs.continuum.io/anaconda/install/ or Miniconda https://conda.io/docs/user-guide/install/index.html
 
 After installing anaconda or miniconda, open a terminal and run the following commands:
 
@@ -51,7 +52,6 @@ Contributions are accepted via pull requests. You can also open issues on bugs, 
 ## Copyright and License
 
 &copy; 2018 Ram B. Basnet and T. Doleck. Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.3
-or any later version published by the Free Software Foundation. See LICENSE file for details.
+under the terms of the MIT License. See LICENSE file for details.
 
 Please feel free to use the notebooks anyway you find it useful.
