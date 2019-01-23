@@ -5,7 +5,7 @@
 
 ## Who can use these notebooks
 
-### University and High-school Coding Instructors
+### Coding Instructors
 
 We've used these notebooks in Web2 (Web Page Design 2) course at Colorado Mesa University since Fall 2018. Instructors can pick and choose chapters and spend adequte time based on students skill level. In Web2 prior programming experiece is not a prerequisite, though it always helps to quickly cover the concepts and focus on syntax and language esoteric of JavaScript. If the focus of the course is just to teach JavaScript at a beginnging programming level, one may skip chapters that may not be typically introduced at that level such as Chapter 13 and above.
 
