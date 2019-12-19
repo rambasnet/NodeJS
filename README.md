@@ -2,12 +2,11 @@
 
 # Introduction to JavaScript(JS)/ECMAScript (ES 6) and NodeJS using Jupyter Notebooks
 
-
 ## Who can use these notebooks
 
 ### Coding Instructors
 
-We've used these notebooks in Web2 (Web Page Design 2) course at Colorado Mesa University since Fall 2018. Instructors can pick and choose chapters and spend adequte time based on students skill level. In Web2 prior programming experiece is not a prerequisite, though it always helps to quickly cover the concepts and focus on syntax and language esoteric of JavaScript. If the focus of the course is just to teach JavaScript at a beginnging programming level, one may skip chapters that may not be typically introduced at that level such as Chapter 13 and above.
+We've used these notebooks in Web2 (Web Page Design 2) and Advanced Programming: Python courses at Colorado Mesa University. Instructors can pick and choose chapters and spend adequte time based on students skill level. In Web2 prior programming experiece is not a prerequisite, though it always helps to quickly cover the concepts and focus on syntax and language esoteric of JavaScript. If the focus of the course is just to teach JavaScript at a beginnging programming level, one may skip chapters that may not be typically introduced at that level such as Chapter 13 and above.
 
 ### Self learners
 
@@ -29,12 +28,13 @@ To run these notebooks interactvely and save your work locally, you need NodeJS 
 Anaconda or Miniconda has Python 3 and many other packages that you can easily install on any platform (Windows, Linux, and Mac). First, install Anaconda http://docs.continuum.io/anaconda/install/ or Miniconda https://conda.io/docs/user-guide/install/index.html
 
 After installing anaconda or miniconda, open a terminal and run the following commands:
-
-    conda update conda
-    conda install jupyter
-    conda install nodejs
-    npm install -g ijavascript
-    ijsinstall --install=global
+```
+    $ conda update conda
+    $ conda install jupyter
+    $ conda install nodejs
+    $ npm install -g ijavascript
+    $ sudo ijsinstall --install=global
+```
 
 #### Running the notebook server
 
