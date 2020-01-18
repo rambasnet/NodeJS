@@ -59,7 +59,7 @@ Contributions are accepted via pull requests. You can also open issues on bugs, 
 
 ## Copyright and License
 
-&copy; Ram B. Basnet and T. Doleck. Permission is granted to copy, distribute and/or modify this document
+&copy; Ram B. Basnet. Permission is granted to copy, distribute and/or modify this document
 under the terms of the MIT License. See LICENSE file for details.
 
 Please feel free to use the notebooks anyway you find it useful.
