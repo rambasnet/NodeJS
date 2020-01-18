@@ -24,7 +24,7 @@ var name;
 console.log("Hi there! What's your name? ");
 rl.on('line', (line) => {
     name = line;
-    console.log('Hello, ', name);
+    console.log('Hello,', name);
     console.log('Are you ready to play this game? ')
 });
 console.log('All done!')
