@@ -29,14 +29,22 @@ Anaconda or Miniconda has Python 3 and many other packages that you can easily i
 
 After installing anaconda or miniconda, open a terminal and run the following commands:
 ```
+    - update conda
     $ conda update conda
+    - create an virtual environment called nodejs with python 3.8 version
+    $ conda create -n nodejs python=3.7
+    - see all your conda environments
+    $ conda env list
+    - activate the nodejs environment; Note, you must do it everytime you want to run nodejs
+    $ conda install -c conda-forge nodejs
     $ conda install jupyter
-    $ conda install nodejs
     $ npm install -g ijavascript
     $ sudo ijsinstall --install=global
 ```
+#### Running the notebooks in VS Code
+- Python notebooks can be run farily straightforward in VS Code but haven't yet figured it out how to run NodeJS notebooks in VS Code.
 
-#### Running the notebook server
+#### Running the notebooks via jupyternotebook server
 
 Once the above tools are installed, open a terminal change working directory using cd command to go into the folder where this repo is cloned and run the notebook from there:
 
@@ -51,7 +59,7 @@ Contributions are accepted via pull requests. You can also open issues on bugs, 
 
 ## Copyright and License
 
-&copy; 2019 Ram B. Basnet and T. Doleck. Permission is granted to copy, distribute and/or modify this document
+&copy; Ram B. Basnet and T. Doleck. Permission is granted to copy, distribute and/or modify this document
 under the terms of the MIT License. See LICENSE file for details.
 
 Please feel free to use the notebooks anyway you find it useful.
