@@ -28,9 +28,12 @@
       function getOptions() {
         $("#cars").empty(); // clear dropdown
         for (car of cars)
+          // use one of the following methods to add an option to select widget
           $('#cars').append(`<option value="${car.val}">${car.text}</option>`);
+          //$('#cars').append(new Option(car.text, car.val));
+          //$('#cars').append($('<option>').val(car.val).text(car.text));
       }
-      
+
       </script>
       <button onclick="getOptions()">Get Car Options</button>
       <label>Cars: </label>
@@ -41,8 +44,8 @@
       <script>
       $(function (){
         $("#cars").change(function () {
-          var selectedCar = $('#cars').val()
-          alert(`You selected ${selectedCar}`)
+          var selectedCar = $('#cars').val();
+          alert(`You selected ${selectedCar}`);
         });
       });
       </script>
