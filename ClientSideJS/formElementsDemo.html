@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head> 
+  <body>
+    <h1>Playing with Form Widgets</h1>
+    <script>
+      var cars = [{val: 'volvo', text: 'Volvo'},
+                  {val: 'saab', text: 'Saab'},
+                  {val: 'fiat', text: 'Fiat'},
+                ]
+
+      function addNewCar() {
+        var carName = $("#car").val();
+        var car = {val: carName.toLowerCase(), text: carName }
+        for (c of cars) {
+          if (c.val == car.val) {
+            alert(`${c.val} alread exists in database`);
+            return;
+          }
+        }
+        // add new car into cars list
+        cars.push(car);
+        getOptions();
+      }
+
+      function getOptions() {
+        $("#cars").empty(); // clear dropdown
+        for (car of cars)
+          $('#cars').append(`<option value="${car.val}">${car.text}</option>`);
+      }
+      
+      </script>
+      <button onclick="getOptions()">Get Car Options</button>
+      <label>Cars: </label>
+      <select name="cars" id="cars"></select>
+      <br />
+      <br />
+      <label>Enter a new car option: </label> <input type="text" id="car"><button id="addNewCar" onclick="addNewCar()">Add New Car</button>
+      <script>
+      $(function (){
+        $("#cars").change(function () {
+          var selectedCar = $('#cars').val()
+          alert(`You selected ${selectedCar}`)
+        });
+      });
+      </script>
+  </body>
+</html> 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script>
+        $(function () {
+          $("#add").click(function () {
+            var x, y;
+            x = $("#input1").val();
+            if (isNaN(x)) {
+              alert(`${x} is not a number!`);
+              return;
+            }
+            x = Number(x); // convert string into number
+            y = $("#input2").val();
+            if (isNaN(y)) {
+              alert(`${y} is not a number!`);
+            }
+            y = Number(y);
+            $("#result").text(`${x} + ${y} = ${x+y}`);
+          });
+        });
+      </script>
+      <script>
+        // JS DOM Example - https://www.w3schools.com/js/js_htmldom_document.asp
+        function findPower() {
+          var x = document.getElementById("input1").value;
+          var y = document.getElementById("input2").value;
+          if (isNaN(x)) {
+            alert(`${x} is not a number!`);
+            return;
+          }
+          if (isNaN(y)) {
+            alert(`${y} is not a number!`);
+            return;
+          }
+          document.getElementById('result').innerHTML= `${x} ^ ${y} = ${x**y}`;
+        }
+      </script>
+
+  </head>
+
+  <body>
+    <h1>A Simple Calculator</h1>
+    <label>x = </label><input type="text" id="input1"><br />
+    <label>y = </label><input type="text" id="input2"><br />
+    <br />
+    <button type="button" id="add">Add</button>
+    <button type="button" id="power" onclick="findPower()">Power (x^y) </button><br /><br />
+
+    <label id="result">Result: </label>
+  </body>
+</html>

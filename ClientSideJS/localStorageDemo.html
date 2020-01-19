@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      // check if local storage is supported by browswer
+      // reference: https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
+      if (typeof(Storage) === 'undefined')
+        alert('Local storage not supported!');
+      else {
+        alert('Yay! local storage is supported!');
+        //setItem(key, value)
+        
+        localStorage.setItem('name', 'John Smith');
+        alert(localStorage.getItem('name'));
+        // store JSON objects
+        /*
+        var user = {
+          firstName: "Jason",
+          lastName: "Bond",
+          location: "London, UK"
+        }
+        localStorage.setItem('user', JSON.stringify(user));
+        */
+      }
+      /*
+      To use localStorage in your web applications, there are five methods to choose from:
+
+      setItem(): Add key and value to localStorage
+      getItem(): Retrieve a value by the key from localStorage
+      removeItem(): Remove an item by key from localStorage
+      clear(): Clear all localStorage
+      key(): Passed a number to retrieve nth key of a localStorage
+      */
+    </script>
+    <script>
+      // getItem()
+      var u = localStorage.getItem('user');
+        u = JSON.parse(u);
+        alert(u.firstName);
+        alert(u.location);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

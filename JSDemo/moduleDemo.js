@@ -3,7 +3,7 @@ This is module 1. Declares question, answer, and areaOfCircle function
 */
 
 const circle = require('./circle.js');
-const math = require('./library/math.js');
+const math = require('./library/my_math.js');
 
 var question = "What is the meaning of Life, the Universe, and Everything?";
 var answer = 42;

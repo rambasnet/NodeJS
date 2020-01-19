@@ -8,8 +8,8 @@ const assert = require('assert').strict;
 function factorial(n) {
     var fact = 1;
     for (var i=2; i<=n; i++)
-        fact *= i
-    return fact
+        fact *= i;
+    return fact;
 }
 
 /*
