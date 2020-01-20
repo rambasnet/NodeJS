@@ -3,29 +3,64 @@
   <head>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head> 
+  <style>
+    table, td, th {
+      border: 1px solid blue;
+    }
+    th {
+      text-align: left;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+  </style>
   <body>
     <h1>Playing with Form Widgets</h1>
     <script>
-      var cars = [{val: 'volvo', text: 'Volvo'},
-                  {val: 'saab', text: 'Saab'},
-                  {val: 'fiat', text: 'Fiat'},
+      // cars array/database
+      var cars = [
+                  {val: 'volvo', text: 'Volvo', price: 25000},
+                  {val: 'saab', text: 'Saab', price: 35000},
+                  {val: 'fiat', text: 'Fiat', price: 42000},
                 ]
 
+      function updateTable() {
+          $("#carsTable tbody").empty(); // empty tables body section
+          for (car of cars) {
+            $("#carsTable").append(`<tr>
+              <td>${car.val}</td>
+              <td>${car.text}</td>
+              <td>${car.price}</td>
+              <td><button onclick="deleteCar('${car.val}');">Delete</button>
+                <button>Edit</button>
+                </td>
+              </tr>`);
+          }
+      }
+
       function addNewCar() {
-        var carName = $("#car").val();
-        var car = {val: carName.toLowerCase(), text: carName }
+        var carName = $("#carName").val();
+        var carPrice = $("#carPrice").val();
+        if (isNaN(carPrice)) {
+          alert(`${carPrice} is not a number!`);
+          return;
+        }
+        var car = {val: carName.toLowerCase(), text: carName, price: carPrice };
+  
         for (c of cars) {
-          if (c.val == car.val) {
+          if (c.val === car.val) {
             alert(`${c.val} alread exists in database`);
             return;
           }
         }
         // add new car into cars list
         cars.push(car);
-        getOptions();
+        updateOptions();
+        updateTable();
       }
 
-      function getOptions() {
+      function updateOptions() {
         $("#cars").empty(); // clear dropdown
         for (car of cars)
           // use one of the following methods to add an option to select widget
@@ -35,19 +70,45 @@
       }
 
       </script>
-      <button onclick="getOptions()">Get Car Options</button>
+      <button onclick="updateOptions()">Get Car Options</button>
       <label>Cars: </label>
       <select name="cars" id="cars"></select>
       <br />
       <br />
-      <label>Enter a new car option: </label> <input type="text" id="car"><button id="addNewCar" onclick="addNewCar()">Add New Car</button>
+      <label>Enter a new car option: </label> 
+      <input type="text" id="carName">
+      <input type="text" id="carPrice">
+      <button id="addNewCar" onclick="addNewCar()">Add New Car</button>
       <script>
       $(function (){
         $("#cars").change(function () {
           var selectedCar = $('#cars').val();
           alert(`You selected ${selectedCar}`);
         });
+        updateTable();
       });
+      </script>
+      <h2> Table Example </h2>
+      <table id="carsTable" width="100%" style="">
+        <caption>Available Car Options</caption>
+        <thead>
+          <th>Value</th><th>Text</th><th>Price</th><th>Actions</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <script>
+        function deleteCar(carVal) {
+          for (var i in cars) {
+            if (cars[i].val == carVal) {
+              console.log(cars[i])
+              cars.splice(i, 1);
+              break;
+            }
+          }
+          updateTable();
+          updateOptions();
+        }
       </script>
   </body>
 </html> 
