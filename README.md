@@ -1,6 +1,6 @@
-# NodeJS Notebooks
+# JavaScript/NodeJS Notebooks
 
-# Introduction to JavaScript(JS)/ECMAScript (ES 6) and NodeJS using Jupyter Notebooks
+# Introduction to JavaScript(JS)/ECMAScript (ES 6) using Jupyter Notebooks
 
 ## Who can use these notebooks
 
@@ -18,7 +18,6 @@ Depending on their skill and interest level, learners can move as swiftly as app
 
 Inorder to learn coding, it's very important to actually type code on your own from scratch and NOT copy paste! You can run provided cells to see the output, follow along and learn from it but it's important that you either start a new jupyter notebook or add cells and write your own code from scratch to practice the concepts covered with many similar examples and solve the exercises provided.
 
-
 ### On a local system
 
 To run these notebooks interactvely and save your work locally, you need NodeJS https://nodejs.org/en/, Jupyter Notebook http://jupyter.org/ -- an interactive web-based editor that allows you to create and share documents that contain live code and data, and ijavascript https://github.com/n-riesco/ijavascript kernel for jupyter notebook. We recommend Anaconda or Miniconda package managers to install Python and other packages on all modern platforms. The project also includes several demo sites using NodeJS, ExpressJS and MongoDB.
@@ -28,7 +27,8 @@ To run these notebooks interactvely and save your work locally, you need NodeJS 
 Anaconda or Miniconda has Python 3 and many other packages that you can easily install on any platform (Windows, Linux, and Mac). First, install Anaconda http://docs.continuum.io/anaconda/install/ or Miniconda https://conda.io/docs/user-guide/install/index.html
 
 After installing anaconda or miniconda, open a terminal and run the following commands:
-```
+
+```bash
     - update conda
     $ conda update conda
     - create an virtual environment called nodejs with python 3.8 version
@@ -41,15 +41,19 @@ After installing anaconda or miniconda, open a terminal and run the following co
     $ npm install -g ijavascript
     $ sudo ijsinstall --install=global
 ```
+
 #### Running the notebooks in VS Code
+
 - Python notebooks can be run farily straightforward in VS Code but haven't yet figured it out how to run NodeJS notebooks in VS Code.
 
 #### Running the notebooks via jupyternotebook server
 
 Once the above tools are installed, open a terminal change working directory using cd command to go into the folder where this repo is cloned and run the notebook from there:
 
+```bash
     cd <directory where this repo is cloned>
     jupyter notebook
+```
 
 This will start a Jupyter session in your browser. Open a chapter, and start coding...
 
