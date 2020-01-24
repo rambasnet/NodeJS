@@ -28,18 +28,31 @@ Anaconda or Miniconda has Python 3 and many other packages that you can easily i
 
 After installing anaconda or miniconda, open a terminal and run the following commands:
 
+- update conda
+
 ```bash
-    - update conda
-    $ conda update conda
-    - create an virtual environment called nodejs with python 3.8 version
-    $ conda create -n nodejs python=3.7
-    - see all your conda environments
-    $ conda env list
-    - activate the nodejs environment; Note, you must do it everytime you want to run nodejs
-    $ conda install -c conda-forge nodejs
-    $ conda install jupyter
-    $ npm install -g ijavascript
-    $ sudo ijsinstall --install=global
+    conda update conda
+```
+
+- create a virtual environment called nodejs with python 3.7 version
+
+```bash
+    conda create -n nodejs python=3.7
+```
+
+- see all your conda environments
+
+```bash
+    conda env list
+```
+
+- activate the nodejs environment; Note, you must do it everytime you need to run nodejs intrepreter or notebook kernel
+
+```bash
+    conda install -c conda-forge nodejs
+    conda install jupyter
+    npm install -g ijavascript
+    sudo ijsinstall --install=global
 ```
 
 #### Running the notebooks in VS Code
