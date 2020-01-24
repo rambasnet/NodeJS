@@ -59,7 +59,7 @@ After installing anaconda or miniconda, open a terminal and run the following co
     conda env list
 ```
 
-- activate the nodejs environment; Note, you must do it everytime you need to run nodejs intrepreter or notebook kernel
+- activate the nodejs environment. **Note: you must do it everytime you need to run nodejs intrepreter or notebook kernel**
 
 ```bash
     conda install -c conda-forge nodejs
