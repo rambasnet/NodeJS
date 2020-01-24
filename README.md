@@ -2,6 +2,8 @@
 
 # Introduction to JavaScript(JS)/ECMAScript (ES 6) using Jupyter Notebooks
 
+The project repository also includes several demo static webpages and web applications using NodeJS, ExpressJS and MongoDB.
+
 ## Who can use these notebooks
 
 ### Coding Instructors
@@ -31,7 +33,7 @@ To run these notebooks interactvely and save your work locally, you need the fol
 - ijavascript [https://github.com/n-riesco/ijavascript](https://github.com/n-riesco/ijavascript)
     - a kernel for jupyter notebook
 
-We recommend Anaconda or Miniconda package managers to install Python and other packages on all modern platforms. The project also includes several demo static webpages and web applications using NodeJS, ExpressJS and MongoDB.
+We recommend Anaconda or Miniconda package managers to create virtual environment and install nodejs and other packages on all modern platforms.
 
 #### Installing via Anaconda or Miniconda
 
