@@ -20,11 +20,22 @@ Inorder to learn coding, it's very important to actually type code on your own f
 
 ### On a local system
 
-To run these notebooks interactvely and save your work locally, you need NodeJS https://nodejs.org/en/, Jupyter Notebook http://jupyter.org/ -- an interactive web-based editor that allows you to create and share documents that contain live code and data, and ijavascript https://github.com/n-riesco/ijavascript kernel for jupyter notebook. We recommend Anaconda or Miniconda package managers to install Python and other packages on all modern platforms. The project also includes several demo sites using NodeJS, ExpressJS and MongoDB.
+To run these notebooks interactvely and save your work locally, you need the following applications:
+
+- NodeJS [https://nodejs.org/en/](https://nodejs.org/en/)
+    - server-side JavaScript interpreter
+
+- Jupyter Notebook [http://jupyter.org/](http://jupyter.org/)
+    - an interactive web-based editor that allows you to create and share documents that contain live code and data, and
+
+- ijavascript [https://github.com/n-riesco/ijavascript](https://github.com/n-riesco/ijavascript)
+    - a kernel for jupyter notebook
+
+We recommend Anaconda or Miniconda package managers to install Python and other packages on all modern platforms. The project also includes several demo static webpages and web applications using NodeJS, ExpressJS and MongoDB.
 
 #### Installing via Anaconda or Miniconda
 
-Anaconda or Miniconda has Python 3 and many other packages that you can easily install on any platform (Windows, Linux, and Mac). First, install Anaconda http://docs.continuum.io/anaconda/install/ or Miniconda https://conda.io/docs/user-guide/install/index.html
+Anaconda or Miniconda has Python 3 and many other packages that you can easily install on any platform (Windows, Linux, and Mac). First, install Anaconda [http://docs.continuum.io/anaconda/install/](http://docs.continuum.io/anaconda/install/) or Miniconda [https://conda.io/docs/user-guide/install/index.html](https://conda.io/docs/user-guide/install/index.html)
 
 After installing anaconda or miniconda, open a terminal and run the following commands:
 
