@@ -6,13 +6,13 @@
 
 ### Coding Instructors
 
-We've used these notebooks in Web2 (Web Page Design 2) and Advanced Programming: Python courses at Colorado Mesa University. Instructors can pick and choose chapters and spend adequte time based on students skill level. In Web2 prior programming experiece is not a prerequisite, though it always helps to quickly cover the concepts and focus on syntax and language esoteric of JavaScript. If the focus of the course is just to teach JavaScript at a beginnging programming level, one may skip chapters that may not be typically introduced at that level such as Chapter 13 and above.
+We've used these notebooks in Web2 (Web Page Design 2) and Advanced Programming: JavaScript courses at Colorado Mesa University. Instructors can pick and choose chapters and spend adequte time based on students skill level. In Web2 prior programming experiece is not a prerequisite, so instructors may spend a lot more time covering various foundational programming concepts (early chapters). In advanced programming courses where students are expected to be familiar with the basic programming concepts in any other languages such as (C++, Python or Java), one can swiftly move through the early chapters focussing on syntax and language esoteric of JavaScript and perhaps relating to other languages students are familiar with (such as Python or C++). If the focus of the course is just to teach JavaScript at a beginning programming level, one may skip chapters that may not be typically introduced at that level such as Chapter 13 and above.
 
 ### Self learners
 
 Depending on their skill and interest level, learners can move as swiftly as appropairate through the chapters. Try solving some exercises towards the end of each chpater before moving on for self assessment of the mastery of the materails.
 
-## How to use these notebooks
+## How to run these notebooks
 
 ### Important
 
