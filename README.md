@@ -8,7 +8,7 @@ The project repository also includes several demo static webpages and web applic
 
 ### Coding Instructors
 
-We've used these notebooks in Web2 (Web Page Design 2) and Advanced Programming: JavaScript courses at Colorado Mesa University. Instructors can pick and choose chapters and spend adequte time based on students skill level. In Web2 prior programming experiece is not a prerequisite, so instructors may spend a lot more time covering various foundational programming concepts (early chapters). In advanced programming courses where students are expected to be familiar with the basic programming concepts in any other languages such as (C++, Python or Java), one can swiftly move through the early chapters focussing on syntax and language esoteric of JavaScript and perhaps relating to other languages students are familiar with (such as Python or C++). If the focus of the course is just to teach JavaScript at a beginning programming level, one may skip chapters that may not be typically introduced at that level such as Chapter 13 and above.
+We've used these notebooks in Web2 (Web Page Design 2) and Advanced Programming: JavaScript courses at Colorado Mesa University. Instructors can pick and choose chapters and spend adequate time based on students skill level. In Web2 prior programming experience is not a prerequisite, so instructors may spend more time covering various foundational programming concepts (early chapters). In advanced programming courses where students are expected to be familiar with the basic programming concepts in some languages such as (C++, Python or Java), one can swiftly move through the early chapters focussing on syntax and language esoteric of JavaScript and perhaps relating to other languages students are familiar with (such as Python or C++). If the focus of the course is just to teach JavaScript at a beginning programming level, one may skip chapters that may not be typically introduced at that level e.g., Chapter 13 and above.
 
 ### Self learners
 
@@ -18,7 +18,7 @@ Depending on their skill and interest level, learners can move as swiftly as app
 
 ### Important
 
-Inorder to learn coding, it's very important to actually type code on your own from scratch and NOT copy paste! You can run provided cells to see the output, follow along and learn from it but it's important that you either start a new jupyter notebook or add cells and write your own code from scratch to practice the concepts covered with many similar examples and solve the exercises provided.
+Inorder to learn coding, it's very important to actually type code from scratch and NOT copy paste! You can run provided code to see the output, follow along and learn from it. However, it's very important that you either start a new jupyter notebook or add cells and write your own code from scratch to practice the concepts covered with many similar examples and solve the exercises provided.
 
 ### On a local system
 
