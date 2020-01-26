@@ -75,7 +75,7 @@ After installing anaconda or miniconda, open a terminal and run the following co
 
 #### Running the notebooks via jupyternotebook server
 
-Once the above tools are installed, open a terminal change working directory using cd command to go into the folder where this repo is cloned and run the notebook from there:
+Once the above tools are installed, open a terminal activate nodejs or virtual env; change working directory using cd command to go into the folder where this repo is cloned and run the notebook from there:
 
 ```bash
     conda activate nodejs
