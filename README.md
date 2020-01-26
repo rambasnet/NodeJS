@@ -60,6 +60,7 @@ After installing anaconda or miniconda, open a terminal and run the following co
 ```
 
 - activate the nodejs environment. **Note: you must do it everytime you need to run nodejs intrepreter or notebook kernel**
+- install nodejs, jupyter notebook and ijavascript kernel
 
 ```bash
     conda install -c conda-forge nodejs
@@ -77,6 +78,7 @@ After installing anaconda or miniconda, open a terminal and run the following co
 Once the above tools are installed, open a terminal change working directory using cd command to go into the folder where this repo is cloned and run the notebook from there:
 
 ```bash
+    conda activate nodejs
     cd <directory where this repo is cloned>
     jupyter notebook
 ```
