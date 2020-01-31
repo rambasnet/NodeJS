@@ -59,14 +59,15 @@ After installing anaconda or miniconda, open a terminal and run the following co
     conda env list
 ```
 
-- activate the nodejs environment. **Note: you must do it everytime you need to run nodejs intrepreter or notebook kernel**
+- activate the nodejs environment. **Note: you must active your virtualenv everytime you need to run nodejs intrepreter or notebook kernel**
 - install nodejs, jupyter notebook and ijavascript kernel
 
 ```bash
+    conda activate nodejs
     conda install -c conda-forge nodejs
     conda install jupyter
     npm install -g ijavascript
-    sudo ijsinstall --install=global
+    ijsinstall
 ```
 
 #### Running the notebooks in VS Code
