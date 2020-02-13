@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/rambasnet/NodeJSNotebooks.git"
   },
-  "keywords": [],
+  "keywords": ["NodeJS", "Node", "JavaScript", "JupyterNotebook for JS", "Express", "jQuery"],
   "author": "",
   "license": "ISC",
   "bugs": {
