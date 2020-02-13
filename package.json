@@ -11,8 +11,8 @@
     "url": "git+https://github.com/rambasnet/NodeJSNotebooks.git"
   },
   "keywords": ["NodeJS", "Node", "JavaScript", "JupyterNotebook for JS", "Express", "jQuery"],
-  "author": "",
-  "license": "ISC",
+  "author": "Ram Basnet",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rambasnet/NodeJSNotebooks/issues"
   },
