@@ -10,7 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/rambasnet/NodeJSNotebooks.git"
   },
-  "keywords": ["NodeJS", "Node", "JavaScript", "JupyterNotebook for JS", "Express", "jQuery"],
+  "keywords": [
+    "NodeJS",
+    "Node",
+    "JavaScript",
+    "JupyterNotebook for JS",
+    "Express",
+    "jQuery"
+  ],
   "author": "Ram Basnet",
   "license": "MIT",
   "bugs": {
@@ -18,7 +25,7 @@
   },
   "homepage": "https://github.com/rambasnet/NodeJSNotebooks#readme",
   "dependencies": {
-    "mongodb": "^3.1.8",
+    "mongodb": "^3.5.3",
     "readline-sync": "^1.4.9"
   }
 }
