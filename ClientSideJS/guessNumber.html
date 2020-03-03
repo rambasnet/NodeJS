@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head> 
+  <script>
+    var hidden;
+    var tries;
+    const maxTries = 6;
+    function setup() {
+      hidden = Math.ceil(Math.random()*20);
+      tries = 0;
+    }
+  </script>
+  <body onload="setup()">
+    <h1>Guess The Number Game</h1>
+    <script>
+      $(function (){
+        $("#btnSubmit").click(function () {
+          playgame();
+        });
+        $("#reset").click(function() {
+          setup();
+          this.hide();
+        });
+      });
+
+      function playgame() {
+        var number = $("#number").val();
+        //alert(hidden);
+        //alert(number);
+        if (isNaN(number)) {
+          $("#hint").text("Enter a valid number between 1 and 20");
+          return;
+        }
+        
+        if (tries > maxTries) {
+          $("#hint").text(`Sorry, you lose! The number was ${hidden}`);
+          $("#reset").show();
+          return;
+        }
+
+        if (number > hidden) {
+          $("#hint").text("Your number is too large!");
+          tries++;
+        }
+        else if(number < hidden) {
+          $("#hint").text("Your number is too small!");
+          tries++;
+        }
+        else {
+          $("#hint").text(`Congrats! You gessed my number in ${tries} tries!`);
+          $("#reset").show();
+        }
+      }    
+    </script>
+
+  <p>Enter a number between 1 and 20</p>
+  Number: <input type="text" id="number">
+  <input type="submit" value="Submit" id="btnSubmit">
+  <p id="hint"></p>
+  <button id="reset" hidden>Reset Game</button>
+  </body>
+</html> 
