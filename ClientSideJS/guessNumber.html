@@ -21,8 +21,10 @@
           playgame();
         });
         $("#reset").click(function() {
+          $("#hint").text('');
+          $('#number').val('')
           setup();
-          this.hide();
+          $(this).hide();
         });
       });
 
@@ -34,7 +36,7 @@
           $("#hint").text("Enter a valid number between 1 and 20");
           return;
         }
-
+        tries++;
         if (tries > maxTries) {
           $("#hint").text(`Sorry, you lose! The number was ${hidden}`);
           $("#reset").show();
@@ -43,11 +45,9 @@
 
         if (number > hidden) {
           $("#hint").text("Your number is too large!");
-          tries++;
         }
         else if(number < hidden) {
           $("#hint").text("Your number is too small!");
-          tries++;
         }
         else {
           $("#hint").text(`Congrats! You gessed my number in ${tries} tries!`);
