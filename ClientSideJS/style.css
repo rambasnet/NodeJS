@@ -1,0 +1,12 @@
+body {
+  background-color: #a3d3f7;
+}
+
+h1 {
+  text-align: center;
+}
+
+#counter {
+  color: red;
+  font-weight: bolder;
+}

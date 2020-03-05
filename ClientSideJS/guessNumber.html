@@ -4,62 +4,45 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
       var hidden;
-      var tries;
+      var tries=0;
       const maxTries = 6;
       function setup() {
         hidden = Math.ceil(Math.random()*20);
         tries = 0;
       }
     </script>
-  </head> 
-
-  <body onload="setup()">
-    <h1>Guess The Number Game</h1>
     <script>
       $(function (){
+        $("#counter").text(maxTries-tries);
         $("#btnSubmit").click(function () {
+          $("#counter").text(maxTries-tries);
           playgame();
         });
         $("#reset").click(function() {
           $("#hint").text('');
-          $('#number').val('')
+          $('#number').val('');
           setup();
+          $("#btnSubmit").removeAttr('disabled');
           $(this).hide();
+          $("#counter").text(maxTries-tries);
         });
       });
-
-      function playgame() {
-        var number = $("#number").val();
-        //alert(hidden);
-        //alert(number);
-        if (isNaN(number)) {
-          $("#hint").text("Enter a valid number between 1 and 20");
-          return;
-        }
-        tries++;
-        if (tries > maxTries) {
-          $("#hint").text(`Sorry, you lose! The number was ${hidden}`);
-          $("#reset").show();
-          return;
-        }
-
-        if (number > hidden) {
-          $("#hint").text("Your number is too large!");
-        }
-        else if(number < hidden) {
-          $("#hint").text("Your number is too small!");
-        }
-        else {
-          $("#hint").text(`Congrats! You gessed my number in ${tries} tries!`);
-          $("#reset").show();
-        }
-      }    
     </script>
+    <script src="game.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head> 
 
-  <p>Enter a number between 1 and 20</p>
-  Number: <input type="text" id="number">
-  <input type="submit" value="Submit" id="btnSubmit">
-  <p id="hint"></p>
-  <button id="reset" hidden>Reset Game</button>
-  </body>
+  <body onload="setup()">
+    <h1>Guess The Number Game</h1>
+    <div id="game" style="text-align: center;">
+      <p>Enter a number between 1 and 20</p>
+      <p>Number of tries left: <span id="counter"></span></p>
+      <hr>
+      Number: <input type="text" id="number">
+      <input type="submit" value="Submit" id="btnSubmit">
+      <p id="hint"></p>
+      <button id="reset" hidden>Reset Game</button>
+      <hr>
+    </div>
+    </body>
 </html> 
