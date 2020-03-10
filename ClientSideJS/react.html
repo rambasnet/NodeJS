@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<body>
+<div id="header1"></div>
+<div id="mydiv"></div>
+<div id="div1"></div>
+<div id="header2"></div>
+<script type="text/babel">
+  class MyHeader extends React.Component {
+  render() {
+    return (
+      <div>
+      <h1 style={{color: "red"}}>Hello Style!</h1>
+      <p>Add a little style!</p>
+      </div>
+    );
+  }
+}
+
+  class Hello extends React.Component {
+    render() {
+      return <h1>Hello World!</h1>
+    }
+  }
+  class Hi extends React.Component {
+    render() {
+      return <p style={{color: "red"}}>Hi there world!</p>
+    }
+  }
+  
+  ReactDOM.render(<MyHeader />, document.getElementById('header2'));
+  ReactDOM.render(<Hello />, document.getElementById('mydiv'));
+  ReactDOM.render(<Hi />, document.getElementById('div1'));
+  ReactDOM.render(<MyHeader />, document.getElementById('header1'));
+</script>
+
+</body>
+</html>
