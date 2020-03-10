@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head> 
+  <script>
+
+    function setCookie(cname, cvalue, exdays=10) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      var cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
+      document.cookie = cookie;
+      alert(`seeting cookie: ${cookie} = ${document.cookie}`);
+
+    }
+
+    function getCookie(cname) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      alert(`cookie= ${document.cookie}`);
+      for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+
+    $(function() {
+      $("#setCookie").click(()=>{
+        setCookie($("#name").val(), $("#value").val());
+      });
+      $("#getCookie").click(()=> {
+        alert(getCookie($("#name").val()));
+      })
+    });
+  </script>
+  <body>
+    <h1>Playing with Cookies</h1>
+    <h2 style="color:red;">Doesn't work!!</h2>
+    Cookie Name: <input type="text" id="name">
+    Value<input type="text" id="value">
+    <button id="setCookie">Set Cookie</button>
+    <button id="getCookie">Read Cookie</button>
+  </body>
+</html> 
+
