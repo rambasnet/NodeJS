@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/rambasnet/NodeJSNotebooks#readme",
   "dependencies": {
-    "mongodb": "^3.5.3",
-    "readline-sync": "^1.4.9"
+    "mongodb": "^3.6.3",
+    "readline-sync": "^1.4.10"
   }
 }

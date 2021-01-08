@@ -50,7 +50,7 @@ After installing anaconda or miniconda, open a terminal and run the following co
 - create a virtual environment called nodejs with python 3.7 version
 
 ```bash
-    conda create -n nodejs python=3.7
+    conda create -n nodejs
 ```
 
 - see all your conda environments
@@ -66,6 +66,7 @@ After installing anaconda or miniconda, open a terminal and run the following co
     conda activate nodejs
     conda install -c conda-forge nodejs
     conda install jupyter
+    conda install -c conda-forge jupyter_nbextensions_configurator
     npm install -g ijavascript
     ijsinstall
 ```
