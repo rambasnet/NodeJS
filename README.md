@@ -1,5 +1,3 @@
-# JavaScript/NodeJS Notebooks
-
 # Introduction to JavaScript(JS)/ECMAScript (ES 6) using Jupyter Notebooks
 
 The project repository also includes several demo static webpages and web applications using NodeJS, ExpressJS and MongoDB.
@@ -25,15 +23,20 @@ Inorder to learn coding, it's very important to actually type code from scratch 
 To run these notebooks interactvely and save your work locally, you need the following applications:
 
 - NodeJS [https://nodejs.org/en/](https://nodejs.org/en/)
-    - server-side JavaScript interpreter
+  - server-side JavaScript interpreter
 
 - Jupyter Notebook [http://jupyter.org/](http://jupyter.org/)
-    - an interactive web-based editor that allows you to create and share documents that contain live code and data, and
+  - an interactive web-based editor that allows you to create and share documents that contain live code and data, and
 
 - ijavascript [https://github.com/n-riesco/ijavascript](https://github.com/n-riesco/ijavascript)
-    - a kernel for jupyter notebook
+  - a kernel for jupyter notebook
 
 We recommend Anaconda or Miniconda package managers to create virtual environment and install nodejs and other packages on all modern platforms.
+
+### JavaScript Development Environment Setup
+
+- if you're using Linux or Mac follow the corresponding instructions at [https://github.com/rambasnet/DevEnvSetup](https://github.com/rambasnet/DevEnvSetup)
+- if you're using Windows, install the same tools by Googling the instructions for Windows
 
 #### Installing via Anaconda or Miniconda
 
