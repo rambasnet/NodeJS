@@ -21,6 +21,6 @@ function test() {
   console.log(`Third number in fibonacci seq = ${math.fib(3)}`);
 }
 
-if (require.main == module) {
+if (require.main === module) {
     test();
 }
