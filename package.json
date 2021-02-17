@@ -1,5 +1,5 @@
 {
-  "name": "NodeJSNotebooks",
+  "name": "NodeJS",
   "version": "1.0.0",
   "description": "Jupyter notebooks for learning JavaScript(JS)/ECMAScript (ES 6) using Node.js",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rambasnet/NodeJSNotebooks.git"
+    "url": "git+https://github.com/rambasnet/NodeJS.git"
   },
   "keywords": [
     "NodeJS",
@@ -21,9 +21,9 @@
   "author": "Ram Basnet",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rambasnet/NodeJSNotebooks/issues"
+    "url": "https://github.com/rambasnet/NodeJS/issues"
   },
-  "homepage": "https://github.com/rambasnet/NodeJSNotebooks#readme",
+  "homepage": "https://github.com/rambasnet/NodeJS#readme",
   "dependencies": {
     "mongodb": "^3.6.3",
     "readline-sync": "^1.4.10"
