@@ -14,3 +14,7 @@ test('-5 minus -15 equals -20', () => {
     expect(functions.sub(-5, -15)).toBe(-20);
 });
 
+test('subtracting floating point numbers', ()=>{
+    expect(functions.sub(3.5, 3.1)).toBeCloseTo(0.4);
+});
+
