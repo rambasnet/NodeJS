@@ -1,0 +1,28 @@
+// /.content-wrapper
+// /#wrapper
+// Scroll to Top Button
+a.scroll-to-top.rounded(href='#page-top')
+  i.fas.fa-angle-up
+// Logout Modal
+#logoutModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Ready to Leave?
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body Select &quot;Logout&quot; below if you are ready to end your current session.
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Cancel
+        a.btn.btn-primary(href='login.html') Logout
+// Bootstrap core JavaScript
+script(src='/vendor/jquery/jquery.min.js')
+script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
+// Core plugin JavaScript
+script(src='vendor/jquery-easing/jquery.easing.min.js')
+// Page level plugin JavaScript
+script(src='/vendor/chart.js/Chart.min.js')
+script(src='/vendor/datatables/jquery.dataTables.js')
+script(src='/vendor/datatables/dataTables.bootstrap4.js')
+// Custom scripts for all pages
+script(src='/javascripts/sb-admin.min.js')

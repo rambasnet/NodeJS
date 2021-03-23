@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h1= title
+    if errors
+        ul
+            each error in errors
+                li!= error.msg
+
+    form(method="POST", action="/signup")
+        label(for="email") Email:
+        input(type="text", id="email", name="email" required placeholder="email")
+        br
+        br
+        label(for="password") Password:
+        input(type="password" id="password" name="password" required placeholder="password")
+        br
+        br
+        label(for="password1") Password again:
+        input(type="password" id="password1" name="password1" required placeholder="re-enter password")
+        br
+        br
+        br
+        button(type="submit") Sign up
+

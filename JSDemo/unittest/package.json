@@ -4,7 +4,8 @@
   "description": "",
   "main": "demo1.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node ./bin/www"
   },
   "keywords": [],
   "author": "",

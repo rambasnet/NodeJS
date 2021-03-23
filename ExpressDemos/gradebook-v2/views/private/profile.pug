@@ -1,0 +1,36 @@
+extends modallayout
+
+block content
+  .container
+    .card.card-register.mx-auto.mt-5
+      .card-header Update Profile
+      if msg
+        .alert.alert-success(role="alert") #{msg}
+      if errors
+        each error in errors
+            .alert.alert-success(role="alert") #{error}
+
+      .card-body
+        form(method="POST" target="")
+          .form-group
+            .form-row
+              .col-md-6
+                .form-label-group
+                  input#firstName.form-control(type='text' name="firstName" placeholder='First name' required='required' autofocus='autofocus' value= user.firstName)
+                  label(for='firstName') First name
+              .col-md-6
+                .form-label-group
+                  input#lastName.form-control(type='text' name="lastName" placeholder='Last name' required='required' value= user.lastName)
+                  label(for='lastName') Last name
+          .form-group
+            .form-label-group
+              input#inputEmail.form-control(type='email' name="email" placeholder='Email address' required='required' value= user.email)
+              label(for='inputEmail') Email address
+          .form-group
+            .form-row
+                .col-md-6
+                    button.btn.btn-primary.btn-block(type="submit") Update
+                .col-md-6
+                    a.btn.btn-primary.btn-block(href="/grade") Cancel
+
+

@@ -1,0 +1,37 @@
+#header {
+    background-image: url(/assets/bg-header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-shadow: 2px 2px rgb(4, 4, 109);
+    background-color: maroon;
+    border-radius: 0px;
+}
+
+#footer {
+    clear: both;
+    height: 100px;
+    background: url(/assets/bg-footer.jpg);
+    background-repeat: repeat-x;
+    background-color: rgb(103, 141, 15);
+    height: 100px;
+    margin-bottom: 0;
+    padding-top: 45px;
+}
+
+.officehour {
+    background: #d0f5a9;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 14px;
+}
+
+.schedule {
+    background: #fafffa;
+    text-align: center;
+    font-size: 14px;
+}
+
+#currentPage {
+    color: white;
+}

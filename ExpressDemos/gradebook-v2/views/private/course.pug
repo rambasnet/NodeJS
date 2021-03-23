@@ -1,0 +1,58 @@
+extends modallayout
+
+block content
+  .container
+    .card.card-register.mx-auto.mt-5
+      .card-header= title
+      .card-body
+
+        // if there's error
+        if errors.length
+            .alert.alert-primary(role="alert")
+                ul.list-group
+                    each err in errors
+                        li.list-group-item= err
+    
+        form(method="POST" target="")
+          .form-group
+            .form-row
+              .col-md-6
+                .form-label-group
+                  if course
+                    // display course.name as value
+                    input#name.form-control(type='text' name="name" placeholder='Course' value= course.name required='required' autofocus='autofocus')
+                  else
+                    input#name.form-control(type='text' name="name" placeholder='Course' required='required' autofocus='autofocus')
+                  label(for='name') Short Name
+              .col-md-6
+                .form-label-group
+                  if course
+                    input#fullName.form-control(type='text' name="fullName" value= course.fullName placeholder='Full Name' required='required')
+                  else
+                    input#fullName.form-control(type='text' name="fullName" placeholder='Full Name' required='required')
+                  label(for='fullName') Full Name
+
+          .form-group   
+            .form-row
+              .col-md-6
+                .form-label-group
+                    if course
+                        input#CRN.form-control(type='Number' name="crn" value= course.crn placeholder='CRN' required='required')
+                    else
+                        input#CRN.form-control(type='Number' name="crn" placeholder='CRN' required='required')
+                    label(for='CRN') CRN
+              .col-md-6
+                .form-label-group
+                    if course
+                        input#section.form-control(type='Number' name="section" value= course.section placeholder='Section' required='required')
+                    else
+                        input#section.form-control(type='Number' name="section" placeholder='Section' required='required')
+                    label(for='section') Section
+          .form-group
+            .form-row
+              .col-md-6
+                .form-label-group
+                     button.btn.btn-primary.btn-block(type="submit") Save
+              .col-md-6
+                .form-label-group
+                    a.btn.btn-success.btn-block(href="/grade") Cancel

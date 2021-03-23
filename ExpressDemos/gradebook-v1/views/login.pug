@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+
+  if error
+    ul
+      li= error
+
+  form(method="POST", action="/login")
+    label(for="email") Email:
+    br
+    input(type="text" id="email" name="email" placeholder="email")
+    br
+    br
+    label(for="password") Password:
+    br
+    input(type="password" id="password" name="password" placeholder="password")
+    br
+    br
+    button(type="submit") Log in
+    br
+    h2 Don't have an account yet? 
+      a(href="/signup") Sign up
