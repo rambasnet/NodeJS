@@ -1,0 +1,62 @@
+<!-- 
+- handling events with methods
+- must bind the event handler explictly in the constructor
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Handling Events</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Load Bootstrap related libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h1>Handling Events</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    class Toggle extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          isToggleOn: false, 
+        };
+        //console.log(this.state.id)
+        // This binding is necessary to make `this` work in the callback
+        // In JavaScript, class methods are not bound by default
+        // If you forget to bind this.handleClick and pass it to onClick, `this` 
+        // will be undefined when the function is actually called.
+        this.handleClick = this.handleClick.bind(this);
+      }
+
+      handleClick() {
+        this.setState( (prevState) => ({
+          isToggleOn: !prevState.isToggleOn
+        }));
+      }
+
+      render() {
+        return (
+          <button onClick={this.handleClick}>
+            {this.state.isToggleOn ? 'ON' : 'OFF'}
+          </button>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <Toggle />,
+      document.getElementById('root')
+    );
+
+    </script>
+  </body>
+</html>

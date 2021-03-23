@@ -1,0 +1,79 @@
+<!-- 
+- form elements such as <input>, <textarea>, <select> typically maintain their own state
+- their states are updated based on user input
+- in React, mutatble state is typically kept in the state propery components, and only updated with setState()
+- React can control these elements by controlling what happens in the form on subsequent user input
+  - these input contols are called "controlled components"
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Handling Forms</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Load Bootstrap related libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h1>Handling Forms</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    class LoginForm extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          username: '',
+          password: '',
+        };
+
+        this.handleUsernameChange = this.handleUsernameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+
+      handleUsernameChange(event) {
+        this.setState({username: event.target.value});
+      }
+
+      handlePasswordChange(event) {
+        this.setState({password: event.target.value})
+      }
+
+      handleSubmit(event) {
+        let data = `username: ${this.state.username} password: ${this.state.password}`;
+        alert('Form data: ' + data);
+        event.preventDefault(); // prevent's the browser from reloading
+      }
+
+      render() {
+        return (
+          <form onSubmit={this.handleSubmit} style={{width: "200px", marginLeft:"50px"}}>
+            <div className="form-group">
+              <label>
+                Name:
+                <input className="form-control" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
+              </label>
+            </div>
+            <div>
+              <label>
+                Password:
+                <input type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} />
+              </label>
+            </div>
+            <input className="btn btn-primary" type="submit" value="Submit" />
+          </form>
+        );
+      }
+    }
+    ReactDOM.render(<LoginForm />, document.getElementById('root'));
+    </script>
+  </body>
+</html>

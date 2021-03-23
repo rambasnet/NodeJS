@@ -1,0 +1,48 @@
+<!-- 
+  - can use ES6 class to define a component
+  - must inherit React Components from React.Component base class
+  - must provide render() method that returns JSX component
+  - You can convert a function component like Clock to a class in five steps:
+    1. Create an ES6 class, with the same name, that extends React.Component.
+    2. Add a single empty method to it called render().
+    3. Move the body of the function into the render() method.
+    4. Replace props with this.props in the render() body.
+    5. Delete the remaining empty function declaration.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Creating Components with Class</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Creating Components with Class</h1>
+    <div id="root"></div>
+    <div id="demo"></div>
+    <script type="text/babel">
+
+    /*
+    function Welcome(props) {
+      // passing props let you check for properites beings passed
+      return <h1>Hello, {props.name}!</h1>;
+    }
+    */
+    class Welcome extends React.Component {
+      render() {
+        return <h2>Hello, {this.props.name}!</h2>;
+      }
+    }
+
+    const element = <Welcome name="Sara" />;
+    // React calls the Welcome component with {name: 'Sara'} as the props.
+    ReactDOM.render(element, document.getElementById('root'));
+    // React calls the Welcome component with {name: 'John'} as the props.
+    ReactDOM.render(<Welcome name="John" />, document.getElementById('demo'));
+    </script>
+  </body>
+</html>

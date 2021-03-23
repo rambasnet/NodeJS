@@ -1,0 +1,65 @@
+<!-- Embedding expression in JSX -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Embedding Expressions in JSX</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Embedding Expressions in JSX</h1>
+    <div id='root'></div>
+    <div id="demo"></div>
+    <div id="demo1"></div>
+
+    <script type="text/babel">
+
+      function formatName(user) {
+        return "Mr. " + user.lastName + ", " + user.firstName;
+      }
+      
+      const user = {
+        firstName: 'Harper',
+        lastName: 'Perez'
+      };
+      
+      //embedding expression in JSX component
+      const element = (
+        <h1>
+          Hello, {formatName(user)}!
+        </h1>
+      );
+      
+      ReactDOM.render(
+        element,
+        document.getElementById('root')
+      );
+
+      // JSX is an expression too
+      // After compilation, JSX expression become regular JavaScript function calls and evaluate to JS objects
+      function greet(user) {
+        if (user) {
+          return <h1>Hello, {formatName(user)}!</h1>;
+        }
+        else {
+          return <h1>Hello, Anonymous!</h1>
+        }
+      }
+
+      ReactDOM.render(
+        greet(),
+        document.getElementById('demo')
+      );
+
+      ReactDOM.render(
+        greet(user),
+        document.getElementById('demo1')
+      );
+
+    </script>
+  </body>
+</html>

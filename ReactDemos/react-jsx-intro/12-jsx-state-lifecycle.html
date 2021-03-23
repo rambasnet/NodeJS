@@ -1,0 +1,75 @@
+<!-- 
+- Components defined with class can have their own state that make them truly reusable encapsulated
+- e.g. clock example we saw earler can be converted into Component
+  - it can setup its own timer
+  - it can update itself every second
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>State and Lifecycle</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Class Component with State and Lifecycle</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    class Clock extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {date: new Date()};
+      }
+
+      render() {
+        return (
+          <div>
+            <h1>Current Local Time</h1>
+            <div>
+              <h2>It is now...</h2>
+              <h3>{this.state.date.toLocaleTimeString()}</h3>
+            </div>
+          </div>
+        );
+      }
+      // adding lifecycle methods
+      /*
+      - in application with many components, it's very important to free up resources 
+          taken by the components when they're destroyed
+      - setup a timer whenever a Clock is rendered to the DOM for the first time -- called "mounting"
+      - clear the timer whenever the DOM produced by the Clock is removed -- called "unmounting"
+      */
+      // this lifecycle method runs after the component output has been rendered to the DOM
+      componentDidMount() {
+        this.timerID = setInterval(
+          () => this.tick(),
+          1000
+        );
+      }
+
+      // tear down method to stop time if Clock is removed
+      componentWillUnmount() {
+        clearInterval(this.timerID);
+      }
+
+      // gets called every second, updating the date state
+      // when the state is changed, React knows and calls the render() 
+      // method again to leearn what should be on the screen
+      tick() {
+        this.setState({
+          date: new Date()
+        });
+      }
+    }
+
+    const element = <Clock />;
+    ReactDOM.render(element, document.getElementById('root'));
+
+    </script>
+  </body>
+</html>

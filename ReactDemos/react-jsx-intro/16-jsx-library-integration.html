@@ -1,0 +1,52 @@
+<!-- 
+- integrating third party libraries as a part of React Component
+- example from: https://github.com/kay-is/react-from-zero/blob/master/15-simple-integration.html
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Third-part Library Integration</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Load Bootstrap related libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/moment@2.18.1/min/moment.min.js">
+      // Most of the time we have to use third party libraries
+      // in our applications. Here we integrate a simple one
+      // for date handling and use it with React. It doesn"t
+      // use the DOM so it can be integrated fairly easy.
+    </script>
+  </head>
+  <body>
+    <h1>Integrating Third-pardy Library</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    function DateToday() {
+      return <span>Today is: {moment().format("MM.DD.YYYY")}</span>;
+    }
+
+    let tomorrow = moment().add(1, "da");
+
+    let reactElement = (
+      <div>
+        <DateToday />
+        <h2 style={{ textAlgin: "center" }}>
+          Tomorrow is {tomorrow.format("MMMM")} the {" "}
+          {tomorrow.format("Do")}
+        </h2>
+      </div>
+    );
+
+    ReactDOM.render(reactElement, document.getElementById('root'));
+    </script>
+  </body>
+</html>

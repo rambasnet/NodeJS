@@ -1,0 +1,61 @@
+<!-- Handling Events:
+  - Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+
+  - React events are named using camelCase, rather than lowercase.
+  - With JSX you pass a function as the event handler, rather than a string.
+
+  - click to update Avatar after changing first and lastname
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Handling Events in JSX</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Handling Events</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    const user = {
+      fname: "John",
+      lname: "Smith",
+      avatarUrl: 'https://ui-avatars.com/api/?name=John+Smith'
+      // the link generates an images with first and last initials
+    }
+
+    
+    const element = (
+      <div>
+        <h2>Attributes and Children in JSX Component</h2>
+        <label>First Name: <input type="text" name="fname" tabIndex="1" onChange={handleFnameChange} /></label>
+        <br />
+        <label>Last Name: <input type="text" name="lname" tabIndex="2" onChange={handleLnameChange} /></label>
+        <br />
+        <img src={user.avatarUrl} onClick={updateAvatar} />
+      </div>
+      );
+
+      function handleFnameChange(event) {
+        user.fname = event.target.value;
+      }
+
+      function handleLnameChange(event) {
+        user.lname = event.target.value;
+      }
+
+      function updateAvatar(event) {
+        user.avatarUrl = "https://ui-avatars.com/api/?name=" + user.fname + "+" + user.lname;
+        console.log(user.avatarUrl);
+        event.target.src = user.avatarUrl;
+      }
+
+      ReactDOM.render(element, document.getElementById('root'));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!-- Specifying Attributes and Children with JSX -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Attributes and Children in JSX</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Attributes and Children in JSX</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    const user = {
+      fname: "John",
+      lname: "Smith",
+      avatarUrl: 'https://ui-avatars.com/api/?name=John+Smith'
+      // the link generates an images with firat and last initials
+    }
+
+    // JSX with children; JSX can return only one object!
+    // usually wrap multiple tags in <div> component
+    /*
+    Warning:
+    Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property 
+    naming convention instead of HTML attribute names.
+
+    For example, class becomes className in JSX, and tabindex becomes tabIndex.
+    */
+   // input text boxes are read only! 
+    const element = (
+      <div>
+        <h2>Attributes and Children in JSX Component</h2>
+        <label>First Name: <input type="text" name="fname" tabIndex="0" value={user.fname} readOnly/></label>
+        <br />
+        <label>Last Name: <input type="text" name="lname" tabIndex="1" value={user.lname} readOnly/></label>
+        <br />
+        <img src={user.avatarUrl} readOnly></img>
+      </div>
+      );
+
+      ReactDOM.render(element, document.getElementById('root'));
+    </script>
+  </body>
+</html>

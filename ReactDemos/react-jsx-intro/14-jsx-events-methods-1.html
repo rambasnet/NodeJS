@@ -1,0 +1,108 @@
+<!-- 
+- build React component using composition; multiple Component inside a component
+- demonstrates using bootstrap styles
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Handling Events More...</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Load Bootstrap related libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h1>Handling Events</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    class Toggle extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          isToggleOn: false, 
+          id: props.id,
+        };
+        //console.log(this.state.id)
+        // This binding is necessary to make `this` work in the callback
+        // In JavaScript, class methods are not bound by default
+        // If you forget to bind this.handleClick and pass it to onClick, this will be undefined when the function is actually called.
+        this.handleClick = this.handleClick.bind(this);
+      }
+
+      handleClick() {
+        this.setState( (prevState) => ({
+          isToggleOn: !prevState.isToggleOn
+        }));
+        alert("Clicked button with id " + this.state.id);
+      }
+
+      render() {
+        return (
+          <button onClick={this.handleClick}>
+            {this.state.isToggleOn ? 'X' : '-'}
+          </button>
+        );
+      }
+    }
+
+    class Board extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          row: props.row,
+          col: props.col,
+        };
+      }
+
+      getRow(rowId) {
+        let tds = [];
+        for(let col=0; col<this.props.col; col++) {
+          tds.push(<td><Toggle id={rowId*this.props.col+col} /></td>);
+        }
+        return (
+          <tr>
+            { tds }
+          </tr>
+        );
+      }
+
+      getTable() {
+        let rows = [];
+        for(let row=0; row<this.props.row; row++) {
+          rows.push(this.getRow(row));
+        }
+        return (
+          <table className="table table-striped mx-auto w-auto" style={{ width: "200px" }}>
+            <tbody>
+              { rows }
+            </tbody>
+          </table>
+        );
+      }
+      
+      render() {
+        return (
+          <div className="table-responsive">
+            <h2>Toggle Board programmatically create buttons</h2>
+            { this.getTable() }
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <Board row={3} col={3}/>,
+      document.getElementById('root')
+    );
+
+    </script>
+  </body>
+</html>

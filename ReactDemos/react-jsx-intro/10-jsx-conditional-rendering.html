@@ -1,0 +1,50 @@
+<!-- 
+ - conditional rendering in React works the same way conditions work in JavaScript
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Conditional Rendering</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Conditional Rendering</h1>
+    <div id="root"></div>
+    <div id="demo"></div>
+    <script type="text/babel">
+
+    // let's say you've the following 2 components
+    function UserGreeting(props) {
+      return <h2>Welcome back, {props.name}!</h2>;
+    }
+
+    function GuestGreeting(props) {
+      return <h2>Please sign up.</h2>;
+    }
+
+    function Greeting(props) {
+      const isLoggedIn = props.isLoggedIn;
+      if (isLoggedIn) {
+        return <UserGreeting {...props} />;
+      }
+      return <GuestGreeting />;
+    }
+
+    ReactDOM.render(<Greeting isLoggedIn={false} />, document.getElementById('root'));
+
+    let user = {
+      isLoggedIn: true,
+      name: "John Smith",
+      email: "jsmith@domain.com"
+    }
+    // need to sperad ... the user ojects as key=value list
+    ReactDOM.render(<Greeting {...user} />, document.getElementById('demo'));
+
+    </script>
+  </body>
+</html>

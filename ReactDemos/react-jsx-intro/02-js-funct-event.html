@@ -1,0 +1,40 @@
+<!--
+  - internal style and in-line style demos
+  - JavaScript function and event demo
+  - alert and console.log
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      JavaScript function and event
+    </title>
+    <style>
+      body {
+        background-color:rgb(135, 133, 212);
+        margin: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 style="color: red;">JavaScript function and event</h1>
+
+    <p id="demo" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">JavaScript can change the style and content of an HTML element.</p>
+
+    <script>
+      function myFunction() {
+        document.getElementById("demo").style.fontSize = "20px";
+        document.getElementById("demo").style.color = "red";
+        document.getElementById("demo").style.backgroundColor = "yellow";
+        let arr = document.getElementsByTagName("body");
+        arr[0].style.backgroundColor = "blue";
+        alert(arr[0].style.backgroundColor);
+        console.log(arr[0].style.backgroundColor);
+      }
+    </script>
+
+    <button type="button" onclick="myFunction()">Click Me!</button>
+  </body>
+
+</html>

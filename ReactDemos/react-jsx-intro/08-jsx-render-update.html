@@ -1,0 +1,40 @@
+<!-- 
+  - react elements are immutable; can't change its children or attributes
+  - the only way to update the UI is to create a new element, and pass it to ReactDOM.render()
+  - React only updates what's necessary
+  - React DOM compares the element and its children to the previous state, and only applies the 
+        DOM updates necessary to bring the DOM to the desired state
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rendering and Updating Components</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Rendering and Updating Components</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    function tick() {
+      const element = (
+        <div>
+          <h1>Current Local Time</h1>
+          <div>
+            <h2>It is now...</h2>
+            <h3>{new Date().toLocaleTimeString()}.</h3>
+          </div>
+        </div>
+      );
+      ReactDOM.render(element, document.getElementById('root'));
+    }
+    // call the ReactDOM.render() every second from setInterval() callback
+    setInterval(tick, 1000);
+    </script>
+  </body>
+</html>

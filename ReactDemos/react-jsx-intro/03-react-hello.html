@@ -1,0 +1,28 @@
+<!--
+  - Hello React
+  - babel-standalone compiler and react libraries are needed
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello React!</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- make sure script type is text/babel -->
+    <script type="text/babel">
+      const appElement = document.getElementById('app');
+      let tag = <h1>Hello React!</h1>; // react component
+      ReactDOM.render(
+        tag,
+        document.getElementById('root')
+      );
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

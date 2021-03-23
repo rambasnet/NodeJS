@@ -1,0 +1,38 @@
+<!-- 
+ - components lets you split the UI into independent, resuable pieces, in isolation
+ - conceptually, components are like JS functions
+ - they accept arbitrary arguments (called "props") and return React elements describing what should appear on the screen
+ - JS function is the simplest way to define a component
+ - props are read-only; function or class never modify its own props
+  - Components created using function are type of "pure" function; making props read-only
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Creating Components with Function</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js"-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel Stand-alone for allowing us to use JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Creating Components with Function</h1>
+    <div id="root"></div>
+    <div id="demo"></div>
+    <script type="text/babel">
+
+    function Welcome(props) {
+      // passing props let you check for properites beings passed
+      return <h1>Hello, {props.name}!</h1>;
+    }
+
+    const element = <Welcome name="Sara" />;
+    // React calls the Welcome component with {name: 'Sara'} as the props.
+    ReactDOM.render(element, document.getElementById('root'));
+    // React calls the Welcome component with {name: 'John'} as the props.
+    ReactDOM.render(<Welcome name="John" />, document.getElementById('demo'));
+    </script>
+  </body>
+</html>
