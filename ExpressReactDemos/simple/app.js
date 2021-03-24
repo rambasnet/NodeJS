@@ -29,9 +29,6 @@ if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
 
-app.locals.something = 'value';
-app.locals.qaz = 'qut';
-
 app.get('/', routes.index);
 app.get('/users', user.list);
 

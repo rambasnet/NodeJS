@@ -3,5 +3,8 @@
  */
 
 exports.list = function(req, res) {
-  res.send('respond with a resource');
+  // must use render method 
+  // render users.jsx view with given context
+  res.render('users', {title: "Users List"});
+  //res.send('send user data...');
 };
