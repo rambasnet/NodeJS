@@ -1,0 +1,40 @@
+<nav class="navbar sticky-top navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="index.html"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          if currentPage=="index"
+            a(id="currentPage", class="nav-link" href="index") Home
+          else
+            <a class="nav-link" href="index">Home</a>
+      </li>
+      <li class="nav-item">
+        if currentPage=="teaching"
+          <a id="currentPage" class="nav-link" href="teaching">Teaching</a>
+        else
+           <a class="nav-link" href="teaching">Teaching</a>
+      </li>
+      <li class="nav-item">
+        if currentPage=="research"
+          <a id="currentPage" class="nav-link" href="research">Research</a>
+        else
+          <a class="nav-link" href="research">Research</a>
+      </li>
+      <li class="nav-item">
+        if currentPage=="resources"
+          <a id="currentPage" class="nav-link" href="resources">Resources</a>
+        else
+          <a class="nav-link" href="resources">Resources</a>
+      </li>
+      <li class="nav-item">
+        if currentPage == "contact"
+          <a id="currentPage" class="nav-link" href="contact">Contact</a>
+        else
+          <a class="nav-link" href="contact">Contact</a>
+      </li> 
+    </ul>
+  </div>  
+</nav>

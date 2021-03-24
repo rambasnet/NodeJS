@@ -1,0 +1,20 @@
+{
+  "name": "dynamic-views",
+  "version": "0.1.0",
+  "description": "Example of creating a dynamic app using express-react-views",
+  "author": "Chris Johnson <tenorviol@yahoo.com>",
+  "private": true,
+  "scripts": {
+    "start": "browserify -t babelify views/main.js --standalone main -o public/main.js  && node app.js"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babelify": "^10.0.0",
+    "browserify": "^14.3.0",
+    "express": "^4.15.3",
+    "express-react-views": "0.11.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}
