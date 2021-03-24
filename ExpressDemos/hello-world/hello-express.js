@@ -1,13 +1,13 @@
-var express = require("express");
-var app = express();
+let express = require("express");
+let app = express();
 const port = 9999;
 
 app.get("/", (req, res) => {
   res.send("Hello Express!");
 });
 
-var server = app.listen(port, () => {
-  var host = server.address().address;
-  var port = server.address().port;
+let server = app.listen(port, () => {
+  let host = server.address().address;
+  let port = server.address().port;
   console.log(`Example app listening at http://${host}:${port}`);
 });
