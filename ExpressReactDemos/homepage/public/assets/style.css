@@ -1,0 +1,32 @@
+#banner {
+  background-image: url(bg-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  text-shadow: 2px 2px rgb(4, 4, 109);
+  background-color: maroon;
+  border-radius: 0px;
+}
+
+#footer {
+  clear: both;
+  height: 100px;
+  background: url(bg-footer.jpg);
+  background-repeat: repeat-x;
+  background-color: rgb(103, 141, 15);
+  height: 100px;
+}
+
+.schedule {
+  text-align: center;
+  color: white;
+}
+
+#footer {
+  margin-bottom: 0;
+  padding-top: 45px;
+}
+
+#currentPage {
+  color: white;
+}
