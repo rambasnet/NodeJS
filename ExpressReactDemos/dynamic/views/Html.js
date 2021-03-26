@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
-var app = require('./MyTodoApp');
+var TodoApp = require('./TodoApp');
 
 class Html extends React.Component {
   constructor(props) {
@@ -9,9 +9,9 @@ class Html extends React.Component {
 
   render() {
     var data = this.props.data;
-
+    console.log('data = ', data);
     // render the content as a dynamic react component
-    var contentHtml = ReactDOMServer.renderToString(<app.MyToDo {...data} />);
+    var contentHtml = ReactDOMServer.renderToString(<TodoApp {...data} />);
 
     /**
      * re-render the content as json,

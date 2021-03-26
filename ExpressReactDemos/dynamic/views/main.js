@@ -1,9 +1,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 //var Content = require('./TodoApp');
-var todo = require('./MyTodoApp');
+var TodoApp = require('./TodoApp');
 
 module.exports = function(data, containerId) {
   var container = document.getElementById(containerId || 'content');
-  ReactDOM.render(<todo.MyToDo {...data} />, container);
+  ReactDOM.render(<TodoApp {...data} />, container);
 };
