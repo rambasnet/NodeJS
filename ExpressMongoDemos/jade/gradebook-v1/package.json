@@ -1,0 +1,21 @@
+{
+    "name": "gradebook",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "nodemon ./bin/www"
+    },
+    "dependencies": {
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.6.9",
+        "event-stream": "^3.3.4",
+        "express": "~4.16.0",
+        "express-session": "^1.15.6",
+        "express-validator": "^5.3.0",
+        "http-errors": "~1.6.2",
+        "jade": "^0.29.0",
+        "mongoose": "^5.3.12",
+        "morgan": "~1.9.0",
+        "nodemon": "^2.0.3"
+    }
+}

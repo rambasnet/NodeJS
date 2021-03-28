@@ -1,20 +1,36 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+
+import logo from './logo.svg';
+import './App.css';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" };
+    this.state = {
+      error: null,
+      isLoaded: false,
+      data: ""
+    };
   }
 
-  // uses Fetch API - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
   callAPI() {
-    // make sure the server IP and port # and API name are correct
-    fetch("http://127.0.0.1:9000/testAPI")
-      .then(res => res.text())
-      .then(res => this.setState({ apiResponse: res }))
-      .catch(err => err);
+    const url = "http://localhost:9000/testAPI";
+    // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+    fetch(url)
+    .then(result => result.text() )
+    .then(result => {
+        this.setState({
+        data: result,
+        isLoaded: true
+      })
+    },
+    (error) => {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    })
   }
 
   componentDidMount() {
@@ -22,15 +38,34 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <h1 className="App-intro">{this.state.apiResponse}</h1>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-      </div>
-    );
+    const { error, isLoaded, data } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+              Edit <code>src/App.js</code> and save to reload.
+            </p>
+            <p className="App-intro">
+              Data from API: <em>{data}</em>
+            </p>
+            <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn React
+            </a>
+          </header>
+        </div>
+      );
+    }
   }
 }
 
