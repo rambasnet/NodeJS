@@ -46,6 +46,7 @@ router.post("/login", function(req, res, next) {
             console.log(err)
             throw err
         }
+        console.log(user);
         var validUser = false
         if (user) {
             var hash = user.password

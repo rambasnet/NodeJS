@@ -1,0 +1,62 @@
+extends layout
+
+block content
+    h1= title
+    h3 Welcome #{user.email} &nbsp;&nbsp;| &nbsp;&nbsp;
+        a(href="/logout") Log out
+
+    if locals.msg
+        p= msg
+
+    #ajax
+    
+    form#profile(action="", method="POST")
+        label(for="email") Email:
+        br
+        input(type="text", id="email", name="email", required, value= user.email)
+        br
+        br
+        label(for="fname") First name:
+        br
+        input(type="text", id="fname", name="fname", required, value= user.firstName)
+        br
+        br
+        label(for="lname") Last name:
+        br
+        input(type="text", id="lname", name="lname", required, value= user.lastName)
+        br
+        br
+        br
+        button(type="submit") Update
+        button#btnAjax Ajax Update
+
+    script(src='/javascripts/jquery.min.js')
+
+    script.
+        $(function() {
+            $("#btnAjax").click( (e) => {
+                var frm = $("#profile");
+                console.log('event ', e);
+                e.preventDefault(); // prevent default reload
+                $.ajax({
+                    url: frm.attr('action'), //action/route to submit the form to
+                    type : frm.attr('method'), // type of request
+                    data : frm.serialize(), // data to be sent to the server
+                    success: (resData) => { // on success data will be received!
+                        console.log(resData);
+                        if(resData.msg) {
+                            $('#ajax').attr('style', 'color:green').html(resData.msg);
+                            $('#email').val(resData.user.email)
+                            $('#fname').val(resData.user.firstName)
+                            $('#lname').val(resData.user.lastName)
+                        } else {
+                            $('#ajax').attr('style', 'color:red').html('Sorry, some error occured!');
+                        }
+                    },
+                    error: ()=> {
+                        $('#ajax').attr('style', 'color:red').html('Sorry, some error occurred!');
+                    }
+                });
+            });
+        });
+    
