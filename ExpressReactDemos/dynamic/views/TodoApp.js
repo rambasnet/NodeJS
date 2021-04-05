@@ -96,7 +96,7 @@ class TodoApp extends React.Component {
       return;
     }
     const newItem = {
-      text: todo,
+      text: this.state.text,
       id: this.state.items.length+1,
     };
     this.setState(state => ({
