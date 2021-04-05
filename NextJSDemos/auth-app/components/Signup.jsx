@@ -6,7 +6,7 @@ import Router from "next/router";
 import { useUser } from "../lib/hooks";
 import Link from "next/link";
 
-export default function Login() {
+export default function Signup() {
   const [user, { mutate }] = useUser();
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, isLoading] = useState(false);
@@ -27,11 +27,13 @@ export default function Login() {
         name: e.currentTarget.name.value,
         password: e.currentTarget.password.value
       };
-      const res = await fetch("/api/users", {
+
+      const res = await fetch("/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
+      
       if (res.status === 201) {
         const userObj = await res.json();
         // writing our user object to the state

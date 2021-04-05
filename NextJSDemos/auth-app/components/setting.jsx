@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import { useCurrentUser } from '../lib/hooks';
 
-const ProfileSection = () => {
+function ProfileSection() {
   const [user, { mutate }] = useCurrentUser();
   const [loading, isLoading] = useState(false);
   const nameRef = useRef();
@@ -81,7 +81,7 @@ const ProfileSection = () => {
           <div className="divider"></div>
           <label htmlFor="name" className="input-field col s6">
             Name
-                            <input
+            <input
               required
               id="name"
               name="name"

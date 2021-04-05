@@ -10,6 +10,7 @@ export default function Login() {
 	const [errorMsg, setErrorMsg] = useState("");
 	const [user, { mutate }] = useUser();
 	const [loading, isLoading] = useState(false);
+
 	useEffect(() => {
 		// redirect to home if user is authenticated
 		if (user) router.replace("/");
@@ -22,11 +23,13 @@ export default function Login() {
 			email: e.currentTarget.email.value,
 			password: e.currentTarget.password.value
 		};
+		
 		const res = await fetch("/api/auth", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(body)
 		});
+
 		if (res.status === 200) {
 			const userObj = await res.json();
 			mutate(userObj);
