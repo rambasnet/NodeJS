@@ -1,0 +1,50 @@
+[
+  {
+    "name": "CSCI 106- Web Design I",
+    "times": 6
+  },
+  {
+    "name": "CSCI 100- Beg. Python",
+    "times": 8
+  },
+  {
+    "name": "CSCI 111- CS1",
+    "times": 9
+  },
+  {
+    "name": "CSCI 112- CS2",
+    "times": 7
+  },
+  {
+    "name": "CSCI 206- Web2",
+    "times": 2
+  },
+  {
+    "name": "CSCI 250- CS3",
+    "times": 3
+  },
+  {
+    "name": "CSCI 310- Adv. Python",
+    "times": 8
+  },
+  {
+    "name": "CSCI 310- Adv. JavaScript",
+    "times": 2
+  },
+  {
+    "name": "CSCI 370- Computer Security",
+    "times": 5
+  },
+  {
+    "name": "CSCI 420- Cybersecurity",
+    "times": 7
+  },
+  {
+    "name": "CSCI 465- Net/App Security",
+    "times": 6
+  },
+  {
+    "name": "CSCI 396- Machine Learning",
+    "times": 1
+  }
+]

@@ -2,7 +2,7 @@ import React from "react";
 
 import logo from './logo.svg';
 import './App.css';
-
+import Courses from './components/Courses';
 
 class App extends React.Component {
   constructor(props) {
@@ -63,6 +63,10 @@ class App extends React.Component {
               Learn React
             </a>
           </header>
+          <div>
+            <h1>Load Courses Dynamically using API</h1>
+            <Courses />
+          </div>
         </div>
       );
     }
