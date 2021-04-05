@@ -26,6 +26,7 @@
   "homepage": "https://github.com/rambasnet/NodeJS#readme",
   "dependencies": {
     "mongodb": "^3.6.3",
+    "pug": "^3.0.2",
     "readline-sync": "^1.4.10"
   }
 }
