@@ -33,7 +33,7 @@ router.post("/login", function(req, res, next) {
             }
             res.render("login", context)
         } else {
-            // add user to session
+            // add logged in user to session
             req.session.user = user
             res.redirect("/dashboard")
         }

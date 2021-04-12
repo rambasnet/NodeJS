@@ -5,6 +5,10 @@ var cookieParser = require("cookie-parser")
 var logger = require("morgan")
 var session = require("express-session")
 
+// This should refer to the local React and gets installed via `npm install` in
+// the example.
+var reactViews = require('express-react-views');
+
 // two routers are used
 var indexRouter = require("./routes/index")
 var usersRouter = require("./routes/users")
@@ -14,7 +18,11 @@ var app = express()
 // Set up mongoose connection
 var mongoose = require("mongoose")
 // change <username> and <password>
-var mongo_db_url = "mongodb+srv://db-user:KHcUrgTAm5QkhHmS@cluster0.qdxhi.mongodb.net/gradebook?retryWrites=true&w=majority"
+const username = 'db-user';
+const password = 'KHcUrgTAm5QkhHmS'
+const db_name = 'gradebook-v1'
+var mongo_db_url = `mongodb+srv://${username}:${password}@cluster0.qdxhi.mongodb.net/${db_name}?retryWrites=true&w=majority`
+//var mongo_db_url = "mongodb+srv://db-user:KHcUrgTAm5QkhHmS@cluster0.qdxhi.mongodb.net/gradebook?retryWrites=true&w=majority"
 var mongoDB = process.env.MONGODB_URI || mongo_db_url
 mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true })
 mongoose.Promise = global.Promise
@@ -23,7 +31,8 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"))
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"))
-app.set("view engine", "pug")
+app.set("view engine", "jsx")
+app.engine('jsx', reactViews.createEngine());
 
 app.use(logger("dev"))
 app.use(express.json())
@@ -55,6 +64,7 @@ app.use(function(err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500)
+    console.error(err.stack)
     res.render("error", {title: "Error"})
 })
 

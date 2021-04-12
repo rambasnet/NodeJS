@@ -20,18 +20,19 @@ router.post("/login", function(req, res, next) {
     let password = req.body.password
     // mongoose query projection; include all attributes but password
     // https://mongoosejs.com/docs/api.html#query_Query-projection
+    console.log(email, password);
     User.findOne({ email: email, password: password }, '-password', function(err, user) {
         if (err) {
             console.log(err)
             throw err
         }
-        console.log(user)
+        console.log('user = ', user)
         if (!user) {
-            let context = {
+            let props = {
                 title: "Log in",
-                error: "Invalid username and/or password"
+                errors: [{msg:"Invalid username/password"},],
             }
-            res.render("login", context)
+            res.render("login", props)
         } else {
             // add user to session
             req.session.user = user
@@ -70,6 +71,7 @@ router.post(
         // extract the validation errors from a request
         const errors = validationResult(req)
         // check if there are errors
+        console.error(errors);
         if (!errors.isEmpty()) {
             let context = {
                 title: "Sign up",
@@ -88,7 +90,7 @@ router.post(
                     return next(err)
                 }
                 // successful - redirect to login page
-                res.render("login")
+                res.redirect("/login")
             })
         }
     }

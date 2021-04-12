@@ -7,7 +7,10 @@ var session = require("express-session")
 
 // Set up mongoose connection
 var mongoose = require("mongoose")
-var mongo_db_url = "mongodb+srv://db-user:KHcUrgTAm5QkhHmS@cluster0.qdxhi.mongodb.net/gradebook?retryWrites=true&w=majority"
+const username = 'db-user';
+const password = 'KHcUrgTAm5QkhHmS'
+const db_name = 'gradebook-v2'
+var mongo_db_url = `mongodb+srv://${username}:${password}@cluster0.qdxhi.mongodb.net/${db_name}?retryWrites=true&w=majority`
 var mongoDB = process.env.MONGODB_URI || mongo_db_url
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.Promise = global.Promise

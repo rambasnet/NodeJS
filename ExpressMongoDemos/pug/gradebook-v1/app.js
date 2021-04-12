@@ -14,7 +14,12 @@ var app = express()
 // Set up mongoose connection
 var mongoose = require("mongoose")
 // change <username> and <password>
-var mongo_db_url = "mongodb+srv://db-user:KHcUrgTAm5QkhHmS@cluster0.qdxhi.mongodb.net/gradebook?retryWrites=true&w=majority"
+const username = 'paste your db username';
+const password = 'paste your db password'
+const db_name = 'gradebook-v1' //pick a database name
+// replace your MongoDB Application connection string
+var mongo_db_url = `mongodb+srv://${username}:${password}@cluster0.qdxhi.mongodb.net/${db_name}?retryWrites=true&w=majority`
+//console.log([process.env.MONGODB_URI])
 var mongoDB = process.env.MONGODB_URI || mongo_db_url
 mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true })
 mongoose.Promise = global.Promise
