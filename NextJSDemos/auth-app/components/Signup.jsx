@@ -50,7 +50,8 @@ export default function Signup() {
       <div className="card-stacked center-align">
         {loading ? <div className="progress" style={{ margin: 0 }}>
           <div className="indeterminate"></div>
-        </div> : null}
+        </div> : null
+        }
         <div className="card-content">
           <div className="row">
             <div className="col s12 m12">
