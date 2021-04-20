@@ -71,7 +71,7 @@ router.post("/login", function (req, res, next) {
 
 // new user registration
 router.get("/register", function (req, res, next) {
-  res.render("register", { title: "Register for an account" })
+  res.render("register", { title: "Register an account" })
 })
 
 router.post(

@@ -1,6 +1,6 @@
 import React from 'react'
 import course from '../models/course'
-import Layout from './Layout'
+import Layout from './layout'
 
 function CoursesTable(props) {
   return (

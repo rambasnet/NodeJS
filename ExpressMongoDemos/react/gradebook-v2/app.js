@@ -10,10 +10,14 @@ var reactViews = require('express-react-views');
 
 // Set up mongoose connection
 var mongoose = require("mongoose")
-const username = 'db-user';
-const password = 'KHcUrgTAm5QkhHmS'
+// FIXME
+const username = 'paste username';
+// FIXME
+const password = 'paste password'
 const db_name = 'gradebook-v2'
+//FIXME change the URL @cluster address!
 var mongo_db_url = `mongodb+srv://${username}:${password}@cluster0.qdxhi.mongodb.net/${db_name}?retryWrites=true&w=majority`
+
 var mongoDB = process.env.MONGODB_URI || mongo_db_url
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.Promise = global.Promise
@@ -38,6 +42,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 // handles server side sessions
 app.use(session({ 
+    // FIXME - change your secret to some long random string
     secret: "fd83rndfp;353laf;343someasdfscadsfret!", 
     resave: true,
     name: 'SESSION_ID',
