@@ -23,7 +23,7 @@ var mongoose = require("mongoose")
 const username = 'paste username';
 // FIXME
 const password = 'paste password'
-const db_name = 'gradebook-v2'
+const db_name = 'gradebook-v1'
 //FIXME change the URL @cluster address!
 var mongo_db_url = `mongodb+srv://${username}:${password}@cluster0.qdxhi.mongodb.net/${db_name}?retryWrites=true&w=majority`
 

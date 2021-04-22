@@ -4,12 +4,14 @@ var router = express.Router()
 var bcrypt = require("bcryptjs")
 
 // https://express-validator.github.io/docs/
-const { check } = require("express-validator/check")
-const { body, validationResult } = require("express-validator/check")
+const { check, validationResult } = require('express-validator/check')
+//const { check } = require("express-validator/check")
+const { sanitizeBody } = require("express-validator/filter")
 
 // import models
 var User = require("../models/user")
 var Course = require("../models/course")
+const { MongoError } = require("mongodb")
 
 let title = "Grade Book"
 
@@ -46,13 +48,13 @@ router.post("/login", function (req, res, next) {
   var password = req.body.password
   User.findOne({ email: email }, function (err, user) {
     if (err) {
-      console.log(err)
-      throw err
+      console.log(err);
+      throw err;
     }
     console.log(user);
-    var validUser = false
+    var validUser = false;
     if (user) {
-      var hash = user.password
+      var hash = user.password;
       validUser = bcrypt.compareSync(password, hash)
     }
     if (validUser) {
@@ -62,7 +64,7 @@ router.post("/login", function (req, res, next) {
     } else {
       let context = {
         title: "Log in",
-        error: "Invalid username and/or password"
+        errors: [{msg:"Invalid username and/or password"}]
       }
       res.render("login", context)
     }
@@ -82,41 +84,43 @@ router.post(
     check("firstName", "First name must not be empty")
       .trim()
       .isLength({ min: 1 })
-      .withMessage('must be at least 1 character')
-      .trim(),
+      .withMessage('must be at least 1 character'),
     check("lastName", "Last name must not be empty.")
-      .isLength({ min: 1 })
-      .trim(),
+      .trim()
+      .isLength({ min: 1 }),
     check("email", "Email must not be empty.")
-      .isLength({ min: 1 })
-      .trim(),
+      .trim()
+      .isLength({ min: 3 })
+      .withMessage('Email must be at least 3 characters long'),
     // email must be valid
     check("email", "Not a valid email.")
-      .isEmail()
-      .trim(),
+      .trim()
+      .isEmail(),
     check("password", "Password must be at leat 5 chars long")
-      .isLength({ min: 5 })
-      .trim(),
-    check("password1", "two passwords do not match")
+      .trim()
+      .isLength({ min: 5 }),
+    check("password1", "Two passwords do not match")
+      .trim()
       .exists()
       .custom((value, { req }) => value === req.body.password),
     // Sanitize all fields.
-    body("*")
+    sanitizeBody("*")
       .trim()
       .escape()
   ],
   function (req, res, next) {
     // check authentication
-    var user = userLoggedIn(req, res)
+    //var user = userLoggedIn(req, res)
     // extract the validation errors from a request
     const errors = validationResult(req)
     // check if there are errors
+    //console.error(errors.array())
     if (!errors.isEmpty()) {
       let context = {
         title: "Register",
         errors: errors.array()
       }
-      res.rende("register", context)
+      res.render("register", context)
     } else {
       // create a user document and insert into mongodb collection
       let user = new User({
@@ -135,7 +139,7 @@ router.post(
         console.log('Register successful:', user)
         //req.session.user = user
         //res.redirect("/grade")
-        res.redirect('/grade/login')
+        res.redirect('/login')
       })
     }
   }
@@ -177,7 +181,7 @@ router.post("/profile", function (req, res, next) {
       res.render("./private/profile", {
         title: "Profile",
         user: updateduser,
-        msg: "Profile updated successfully!"
+        errors: [{msg: "Profile updated successfully!"}]
       })
     })
   })
@@ -186,10 +190,9 @@ router.post("/profile", function (req, res, next) {
 router.get("/courses", function (req, res, next) {
   // get logged in user
   let user = userLoggedIn(req, res)
-  Course.find({}, (err, courses) => {
+  Course.find({user_id: user._id}, (err, courses) => {
     if (err) throw err;
-    console.log(err)
-    console.log(courses)
+    //console.log(courses)
     res.render("courses", {
       title: "All courses",
       courses: courses,
@@ -229,24 +232,24 @@ router.post(
   [
     // Validate fields.
     check("name", "Short name must not be empty.")
-      .isLength({ min: 1 })
-      .trim(),
+      .trim()
+      .isLength({ min: 1 }),
     check("fullName", "Full name must not be empty.")
-      .isLength({ min: 1 })
-      .trim(),
+      .trim()
+      .isLength({ min: 1 }),
     check("crn", "CRN must not be empty.")
-      .isLength({ min: 1 })
-      .trim(),
+      .trim()
+      .isLength({ min: 1 }),
     // email must be valid
     check("section", "Section must not be empty.")
       .isLength({ min: 1 })
       .trim(),
     // Sanitize fields.
-    body("*")
+    sanitizeBody("*")
       .trim()
       .escape()
   ],
-  function (req, res, next) {
+  function (req, res) {
     // check authentication
     var user = userLoggedIn(req, res)
     // extract the validation errors from a request
@@ -257,26 +260,48 @@ router.post(
         title: "Add a new course",
         errors: errors.array()
       }
-      res.render("course", context)
+      res.render("./components/course", context)
     } else {
       // create a user document and insert into mongodb collection
       let course = {
         name: req.body.name,
         fullName: req.body.fullName,
         crn: req.body.crn,
-        section: req.body.section
+        section: req.body.section,
+        user_id: user._id
       }
       // check if data is there on console
       console.log(course)
       // check if the form data is for update or new course
       var id = req.params.id
-      if (id)
+      if (id) {
         // update
         updateCourse(res, id, course)
+        let context = {
+          title: "Update course",
+          errors: [{msg: "Course updated successfully!"}],
+          course: course
+        }
+        res.render("./components/course", context)
+      }
       // add new course
-      else addCourse(res, course)
+      else {
+        addCourse(res, course).then((errors) => {
+          console.log('Errors: ', errors)
+          if (errors && errors.length !== 0) {
+            let context = {
+              title: "Add a new course",
+              errors: errors
+            }
+            res.render("./components/course", context)
+          }
+          else {
+            res.redirect("/courses")
+          }
+        })
+      }
       // successful - redirect to dashboard
-      res.redirect("/courses")
+      //res.redirect("/courses")
     }
   }
 )
@@ -287,18 +312,26 @@ function updateCourse(res, id, course) {
   var update = {}
   Course.updateOne(condition, course, option, (err, rowsAffected) => {
     if (err) {
-      throw err
+      console.log(`caught the error: ${err}`)
+      return res.status(500).json(err);
     }
   })
 }
 
-function addCourse(res, course) {
+async function addCourse(res, course) {
   var c = new Course(course)
-  c.save(err => {
-    if (err) {
-      return next(err)
+  try {
+    await c.save();
+  }
+  catch(e) {
+    if (e instanceof MongoError) {
+      console.log(`Exception: ${e.message}`)
+      if (e.message.includes('duplicate key error'))
+        return [{msg: "Duplicate CRN not allowed"}]
+      else return []
     }
-  })
+    else throw e;
+  }
 }
 
 // either add new or update existing course

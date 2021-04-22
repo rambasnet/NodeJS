@@ -25,13 +25,13 @@ class Profile extends React.Component{
         <h3>Welcome, {this.state.email} | <a href="/dashboard/">Dashboard</a> | <a href="/logout">Log Out</a></h3>
         <Message messages={this.state.messages} />
         <form method="POST" onSubmit={this.handleSubmit}>
-          <label>
+          <label>Email: 
             <input type="text" name="email" required value={this.state.email} onChange={this.handleInputChange} /> 
           </label><br />
-          <label>
+          <label>First Name: 
             <input type="text" name="fname" required value={this.state.firstName} onChange={this.handleInputChange} />
           </label> <br />
-          <label>
+          <label>Last Name:
             <input type="text" name="lname" required value={this.state.lastName} onChange={this.handleInputChange} />
           </label><br /><br />
           <button type="submit">Update</button>

@@ -27,14 +27,12 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"))
 var router = require("./routes/router")
 let usersRouter = require('./routes/users')
 
-
 var app = express()
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "jsx")
 app.engine('jsx', reactViews.createEngine());
-
 
 app.use(logger("dev"))
 app.use(express.json())
