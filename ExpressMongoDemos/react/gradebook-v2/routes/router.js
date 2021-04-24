@@ -29,13 +29,9 @@ router.get("/", function (req, res, next) {
 // authenticated page; check if session exists
 router.get("/dashboard", (req, res, next) => {
   let user = userLoggedIn(req, res)
-  Course.find({}, function (error, courses) {
-    if (error) throw error
     res.render("dashboard", {
       title: "Gradebook Dashboard",
       user: user,
-      courses: courses
-    })
   })
 })
 
@@ -118,7 +114,8 @@ router.post(
     if (!errors.isEmpty()) {
       let context = {
         title: "Register",
-        errors: errors.array()
+        errors: errors.array(),
+        firstName: req.body.firstName
       }
       res.render("register", context)
     } else {
