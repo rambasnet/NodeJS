@@ -69,6 +69,7 @@ After installing anaconda or miniconda, open a terminal and run the following co
     conda activate nodejs
     conda install -c conda-forge nodejs
     conda install jupyter
+    conda install -c conda-forge retrolab
     conda install -c conda-forge jupyter_nbextensions_configurator
     npm install -g ijavascript
     ijsinstall
@@ -85,7 +86,8 @@ Once the above tools are installed, open a terminal activate nodejs or virtual e
 ```bash
     conda activate nodejs
     cd <directory where this repo is cloned>
-    jupyter notebook
+    jupyter notebook # classical notebook or use retro
+    jupyter retro # Jupyter lab with retro look and feel
 ```
 
 This will start a Jupyter session in your browser. Open a chapter, and start coding...
