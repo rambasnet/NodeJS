@@ -53,8 +53,8 @@ Once the above tools are installed, open a terminal activate nodejs or virtual e
 ```bash
     conda activate nodejs # if a virtural environment is created using nodejs
     cd <directory where this repo is cloned>
-    jupyter notebook # classical notebook or use retro
-    jupyter retro # Jupyter lab with retro look and feel
+    jupyter notebook # classical notebook OR use retro
+    jupyter retro # Jupyter notebook with retro look and feel
 ```
 
 This will start a Jupyter session in your browser. Open a chapter, and start coding...
