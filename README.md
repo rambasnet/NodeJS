@@ -38,42 +38,9 @@ We recommend Anaconda or Miniconda package managers to create virtual environmen
 - if you're using Linux or Mac follow the corresponding instructions at [https://github.com/rambasnet/DevEnvSetup](https://github.com/rambasnet/DevEnvSetup)
 - if you're using Windows, install the same tools by Googling the instructions for Windows
 
-#### Installing via Anaconda or Miniconda
+### Install Jupyter Notebook and Ijavascript kernel
+- follow the instruction provided here based on your Operating system: [https://www.npmjs.com/package/ijavascript](https://www.npmjs.com/package/ijavascript)
 
-Anaconda or Miniconda has Python 3 and many other packages that you can easily install on any platform (Windows, Linux, and Mac). First, install Anaconda [http://docs.continuum.io/anaconda/install/](http://docs.continuum.io/anaconda/install/) or Miniconda [https://conda.io/docs/user-guide/install/index.html](https://conda.io/docs/user-guide/install/index.html)
-
-After installing anaconda or miniconda, open a terminal and run the following commands:
-
-- update conda
-
-```bash
-    conda update conda
-```
-
-- create a virtual environment called nodejs with python 3.7 version
-
-```bash
-    conda create -n nodejs
-```
-
-- see all your conda environments
-
-```bash
-    conda env list
-```
-
-- activate the nodejs environment. **Note: you must active your virtualenv everytime you need to run nodejs intrepreter or notebook kernel**
-- install nodejs, jupyter notebook and ijavascript kernel
-
-```bash
-    conda activate nodejs
-    conda install -c conda-forge nodejs
-    conda install jupyter
-    conda install -c conda-forge retrolab
-    conda install -c conda-forge jupyter_nbextensions_configurator
-    npm install -g ijavascript
-    ijsinstall
-```
 
 #### Running the notebooks in VS Code
 
@@ -84,7 +51,7 @@ After installing anaconda or miniconda, open a terminal and run the following co
 Once the above tools are installed, open a terminal activate nodejs or virtual env; change working directory using cd command to go into the folder where this repo is cloned and run the notebook from there:
 
 ```bash
-    conda activate nodejs
+    conda activate nodejs # if a virtural environment is created using nodejs
     cd <directory where this repo is cloned>
     jupyter notebook # classical notebook or use retro
     jupyter retro # Jupyter lab with retro look and feel
