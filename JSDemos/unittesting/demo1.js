@@ -1,6 +1,10 @@
 const functions = require('./functions');
 const assert = require('assert');
 
+// ES6 Module syntax not supported yet by jest
+//import * as functions from './functions.js'
+//import assert from 'assert'
+
 function test() {
     assert.strictEqual(functions.add(-10, -5), -15, '-5 + -10 != -15');
     assert.strictEqual(functions.add(5, -100), -95, '5 + -100 != -95');
@@ -20,10 +24,5 @@ function solve() {
     console.log(`${n1} - ${n2} = ${n1-n2}`);
 }
 
-if (require.main == module) {
-    if (process.argv.length > 2 && process.argv[2] === 'test')
-        test();
-    else
-        solve();
-}
-
+test();
+solve();

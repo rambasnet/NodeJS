@@ -1,5 +1,6 @@
-const assert = require('assert').strict;
-
+//const assert = require('assert').strict;
+import assert from 'assert';
+import {fileURLToPath} from 'url';
 /*
     factorial module
 */
@@ -33,9 +34,10 @@ function test() {
     console.log('all test cases passed...');
 }
 
-if (require.main == module) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+//if (require.main == module) {
    test();
 }
 
-module.exports = { fib, factorial };
+export { fib, factorial };
 

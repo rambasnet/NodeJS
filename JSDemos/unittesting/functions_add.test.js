@@ -1,5 +1,5 @@
 
-// Uses CommonJS format (default in NodeJS)
+// Use CommonJS format (default in NodeJS)
 const functions = require('./functions');
 
 test('two plus three is six', () => {

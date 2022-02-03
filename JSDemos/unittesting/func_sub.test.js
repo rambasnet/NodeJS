@@ -1,6 +1,8 @@
 
-// Uses CommonJS format (default in NodeJS)
+// Use CommonJS syntax (default in NodeJS)
 const functions = require('./functions');
+// Use ES6 syntax
+// import * as functions from './functions.js'
 
 test('two minus three is -1', () => {
     expect(functions.sub(2, 3)).toBe(-1);
