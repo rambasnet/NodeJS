@@ -1,3 +1,4 @@
+// Reads asynchronously
 // Enter some data
 console.log('Enter some data: ')
 
@@ -8,3 +9,5 @@ process.stdin.on('data', data => {
   if (data == 'end')
     process.exit();
 });
+
+process.stdout.write('Good bye!');
