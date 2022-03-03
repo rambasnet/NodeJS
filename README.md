@@ -1,4 +1,4 @@
-# Introduction to JavaScript(JS)/ECMAScript (ES 6) using Jupyter Notebooks
+# Introduction to JavaScript(JS) / ECMA Script using Jupyter Notebooks
 
 The project repository also includes several demo static webpages and web applications using NodeJS, ExpressJS and MongoDB.
 
@@ -30,6 +30,7 @@ To run these notebooks interactvely and save your work locally, you need the fol
 
 - ijavascript [https://github.com/n-riesco/ijavascript](https://github.com/n-riesco/ijavascript)
   - a kernel for jupyter notebook
+- tslab [https://github.com/yunabe/tslab](https://github.com/yunabe/tslab)
 
 We recommend Anaconda or Miniconda package managers to create virtual environment and install nodejs and other packages on all modern platforms.
 
@@ -38,9 +39,9 @@ We recommend Anaconda or Miniconda package managers to create virtual environmen
 - if you're using Linux or Mac follow the corresponding instructions at [https://github.com/rambasnet/DevEnvSetup](https://github.com/rambasnet/DevEnvSetup)
 - if you're using Windows, install the same tools by Googling the instructions for Windows
 
-### Install Jupyter Notebook and Ijavascript kernel
-- follow the instruction provided here based on your Operating system: [https://www.npmjs.com/package/ijavascript](https://www.npmjs.com/package/ijavascript)
-
+### Install Jupyter Notebook and TSLab kernel
+- install ijavascript kernel [https://www.npmjs.com/package/ijavascript](https://www.npmjs.com/package/ijavascript]([https://www.npmjs.com/package/ijavascript](https://www.npmjs.com/package/ijavascript)
+- follow the instructions provided in [https://github.com/yunabe/tslab](https://github.com/yunabe/tslab)
 
 #### Running the notebooks in VS Code
 
